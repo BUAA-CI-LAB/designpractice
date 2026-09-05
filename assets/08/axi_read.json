@@ -1,0 +1,32 @@
+{
+    "signal": [
+      {"name": "clk", "wave":     "p....|....|.."},
+    {},
+    ["AW Channel", 
+    {"name": "AWADDR", "wave":    "x.2.x|....|..", "data": ["Address"]},
+      {"name": "AWVALID", "wave": "0.1.x|....|.."},
+    {"name": "AWREADY", "wave":   "0..1x|....|.."}
+    ],
+    {},
+
+    ["W Channel", 
+    {"name": "WDATA", "wave":     "x....|.2x.|..", "data": ["Data"]},
+    {"name": "WVALID", "wave":    "x...0|.10x|.."},
+    {"name": "WREADY", "wave":    "x..x1|..0x|.."},
+    {"name": "WLAST", "wave":     "x...0|.10x|.."}
+    ],
+    {},
+
+    ["B Channel", 
+    {"name": "BRESP", "wave":     "x....|....|2x", "data": ["Okay"]},
+    {"name": "BVALID", "wave":    "x...0|....|10"},
+    {"name": "BREADY", "wave":    "x...0|..1.|.0"}
+    ]
+  ],
+  "config": {
+  },
+  "head":{
+    "tick":0,
+    "every":1
+  }
+}

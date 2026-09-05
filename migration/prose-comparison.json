@@ -1,0 +1,138 @@
+{
+  "method": "Apply documented text/list/command corrections to the saved TeX. Exclude code blocks (verified independently by SHA256), references and layout-only raw TeX. Parse both versions with the same Pandoc LaTeX reader. Compare Str, inline Code, Math and ordered table-cell text after removing whitespace. This is a content comparison, not PDF pixel equivalence.",
+  "chapters": [
+    {
+      "chapter": "chapters/00-preface.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 821,
+      "actual_semantic_text_chars": 821
+    },
+    {
+      "chapter": "chapters/01-overview.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 4972,
+      "actual_semantic_text_chars": 4972
+    },
+    {
+      "chapter": "chapters/02-design-environment.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 4070,
+      "actual_semantic_text_chars": 4070
+    },
+    {
+      "chapter": "chapters/03-digital-logic.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 7987,
+      "actual_semantic_text_chars": 7987
+    },
+    {
+      "chapter": "chapters/04-toolchain.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 6798,
+      "actual_semantic_text_chars": 6798
+    },
+    {
+      "chapter": "chapters/05-simple-cpu.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 9497,
+      "actual_semantic_text_chars": 9497
+    },
+    {
+      "chapter": "chapters/06-more-instructions.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 1451,
+      "actual_semantic_text_chars": 1451
+    },
+    {
+      "chapter": "chapters/07-exceptions.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 10513,
+      "actual_semantic_text_chars": 10513
+    },
+    {
+      "chapter": "chapters/08-bus-and-soc.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 14519,
+      "actual_semantic_text_chars": 14519
+    },
+    {
+      "chapter": "chapters/09-cache.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 20349,
+      "actual_semantic_text_chars": 20349
+    },
+    {
+      "chapter": "chapters/10-mmu.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 8154,
+      "actual_semantic_text_chars": 8154
+    },
+    {
+      "chapter": "chapters/11-advanced-cpu.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 11745,
+      "actual_semantic_text_chars": 11745
+    },
+    {
+      "chapter": "chapters/12-fpga-verification.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 4899,
+      "actual_semantic_text_chars": 4899
+    },
+    {
+      "chapter": "chapters/13-operating-system.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 6375,
+      "actual_semantic_text_chars": 6375
+    },
+    {
+      "chapter": "chapters/14-software.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 2481,
+      "actual_semantic_text_chars": 2481
+    },
+    {
+      "chapter": "chapters/15-chip-preparation.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 9284,
+      "actual_semantic_text_chars": 9284
+    },
+    {
+      "chapter": "chapters/16-chip-frontend.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 15086,
+      "actual_semantic_text_chars": 15086
+    },
+    {
+      "chapter": "chapters/17-chip-backend.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 7659,
+      "actual_semantic_text_chars": 7659
+    },
+    {
+      "chapter": "chapters/18-test-and-show.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 3829,
+      "actual_semantic_text_chars": 3829
+    },
+    {
+      "chapter": "chapters/19-conclusion.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 1731,
+      "actual_semantic_text_chars": 1731
+    },
+    {
+      "chapter": "chapters/30-references.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 1795,
+      "actual_semantic_text_chars": 1795
+    },
+    {
+      "chapter": "chapters/40-resources.tex",
+      "text_matches_after_documented_edits": true,
+      "expected_semantic_text_chars": 639,
+      "actual_semantic_text_chars": 639
+    }
+  ],
+  "all_chapters_match": true
+}

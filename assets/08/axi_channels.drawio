@@ -1,0 +1,63 @@
+<mxfile host="Electron" modified="2024-09-06T08:37:24.144Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="j_j-k21frVwzgGJcApW1" version="24.1.0" type="device">
+  <diagram name="Page-1" id="2y-oMWn2vrwCVBdF0oU3">
+    <mxGraphModel dx="480" dy="364" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zsswYMjk59t8D18L3Gh3-1" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Master&lt;/font&gt;&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;主方&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="200" y="160" width="120" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-3" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;Slave&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;从方&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="560" y="160" width="120" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-6" value="" style="endArrow=none;html=1;rounded=0;exitX=0.997;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.167;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;endFill=0;startArrow=classic;startFill=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="220" as="sourcePoint" />
+            <mxPoint x="560" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.997;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.167;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="340" as="sourcePoint" />
+            <mxPoint x="560" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-8" value="" style="endArrow=none;html=1;rounded=0;exitX=0.997;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.167;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;startArrow=classic;startFill=1;endFill=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="380" as="sourcePoint" />
+            <mxPoint x="560" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-13" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;写响应通道 (B)&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="zsswYMjk59t8D18L3Gh3-8" vertex="1" connectable="0">
+          <mxGeometry x="-0.0182" relative="1" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.997;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.167;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="180" as="sourcePoint" />
+            <mxPoint x="560" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-14" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;写数据通道 (W)&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="440.00487804878054" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-16" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;读数据通道 (R)&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="440.00487804878054" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-17" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;写地址通道 (AW)&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="440.00487804878054" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-18" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;读地址通道 (AR)&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="440.00487804878054" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="zsswYMjk59t8D18L3Gh3-19" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.997;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.167;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="300" as="sourcePoint" />
+            <mxPoint x="560" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

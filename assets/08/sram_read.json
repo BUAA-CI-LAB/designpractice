@@ -1,0 +1,52 @@
+{
+  "signal": [
+    {
+      "name": "clk",
+      "wave": "p......"
+    },
+    ["Master",
+      {
+        "name": "req",
+        "wave": "x1.x..."
+      },
+      {
+        "name": "wr",
+        "wave": "x0.x..."
+      },
+      {
+        "name": "size",
+        "wave": "x2.x...",
+        "data": ["2 bytes"]
+      },
+      {
+        "name": "addr",
+        "wave": "x2.x...",
+        "data": ["Read Address"]
+      }
+    ],
+    ["Slave",
+      {
+        "name": "addr_ok",
+        "wave": "x010..."
+      },
+      {
+        "name": "data_ok",
+        "wave": "x..0.10",
+        "data": ["", ""]
+      },
+      {
+        "name": "rdata",
+        "wave": "x...x2x",
+        "data": ["Read Data"]
+      }
+    ]
+  ],
+  "config": {
+    "hscale": 1.5,
+    "vscale": 1
+  },
+  "head":{
+    "tick":0,
+    "every":1
+  }
+}

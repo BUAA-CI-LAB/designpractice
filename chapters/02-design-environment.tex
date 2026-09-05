@@ -1,0 +1,245 @@
+% !TeX root = ../main.tex
+% 原始章节：02-design-env.Rmd
+
+\chapter{设计环境介绍}\label{chap:02-design-environment}
+
+\section{硬件设计与验证环境}\label{sec:02-design-environment-001}
+
+\subsection{FPGA原理介绍}\label{sec:02-design-environment-002}
+
+FPGA（Field-Programmable Gate Array，现场可编程门阵列）是一种集成电路（IC）技术，其原理和传统的ASIC（Application-Specific Integrated Circuit，专用集成电路）有所不同。ASIC是预先设计好的、固定功能的集成电路，适合于大批量生产，但设计周期长且成本高。相比之下，FPGA是一种可编程的硬件，可以根据需要进行现场编程和配置，灵活性更高。
+
+具体而言，FPGA具有如下特点：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  逻辑单元和可编程连接：FPGA由大量的可编程逻辑单元（Lookup Tables，LUTs）组成，这些LUTs可以实现各种逻辑功能。逻辑单元通过可编程的连接网络（可编程互连网络）互相连接，形成复杂的逻辑电路。
+\item
+  可编程的逻辑功能：FPGA支持可编程逻辑单元，允许设计者根据特定应用需求编写硬件描述语言（如Verilog或VHDL）代码，并将其编译成FPGA可执行的配置文件。这使得FPGA可以在运行时重新配置，从而实现不同的硬件功能，如数字信号处理、通信协议处理、图像处理等。
+\item
+  配置存储和编程：FPGA内部有配置存储器（Configuration Memory），用于存储设计者编写的硬件描述语言代码生成的配置信息。FPGA通常需要一个初始化文件（Bitstream），通过这个文件将设计好的逻辑配置加载到FPGA芯片中，完成硬件逻辑的配置。
+\item
+  时序管理和资源分配：设计FPGA时需要考虑时序管理，确保逻辑电路在时钟周期内正常工作。FPGA资源（如LUTs、片上存储器、DSP块等）在设计中需要合理分配和利用，以达到最佳性能和功耗平衡。
+\item
+  应用领域：FPGA广泛应用于需要高度定制化和灵活性的领域，如嵌入式系统、数字信号处理、网络处理、图像处理、加密解密等。它们也常用于快速原型设计和小批量生产，因为可以在设计后快速修改和优化硬件功能。
+\end{enumerate}
+
+\subsection{FPGA厂商简介}\label{sec:02-design-environment-003}
+
+Xilinx 和 Altera（现在被Intel收购）是两大主要的FPGA厂商。
+
+Xilinx FPGA常用的架构系列包括Spartan、Artix、Kintex和Virtex系列，每个系列适用于不同的应用需求和性能级别。Xilinx的关键技术包括可编程逻辑单元（LUTs）、DSP块、片上存储器等。
+工具链方面，Xilinx提供的设计工具主要是Vivado Design Suite，用于设计、验证、综合和实现FPGA设计。其市场定位是通信、数据中心加速、视频处理、汽车电子等领域，特别擅长高性能和低功耗设计。
+
+Altera的主要FPGA系列包括Cyclone、Arria和Stratix系列，每个系列也具有不同的性能等级和功能组合。
+其设计工具是Quartus Prime，类似于Xilinx的Vivado，用于整个FPGA设计流程的支持和管理。市场定位同样是通信、工业控制、军事应用等领域，特别强调低成本、低功耗和高集成度的设计。
+
+总体而言，Xilinx和Altera在FPGA的架构设计上有一些差异，涉及到逻辑单元、DSP资源、片上存储器等的配置和组织方式。而Vivado（Xilinx）和Quartus Prime（Altera）虽然在功能上有所差异，但都提供了完整的设计流程支持，包括综合、布局布线和验证等。
+
+\subsection{硬件设计环境整体情况}\label{sec:02-design-environment-004}
+
+以下将以Artix-7 FPGA XC7A200T为例介绍典型的FPGA开发板硬件资源。资源方面，其具有：
+
+\begin{itemize}
+\item
+  逻辑单元（Logic Cells，包含大量的可编程逻辑单元（LUTs），用于实现各种逻辑功能）: 215360
+\item
+  DSP资源（DSP Slices，内置数字信号处理器块，用于高性能的数字信号处理任务。）: 740
+\item
+  片上存储器（Memory，包括分布式RAM和块RAM，用于存储数据和配置信息。）: 13140
+\item
+  GTP 6.6 Gb/s Transceivers: 16
+\item
+  I/O资源（I/O Pins，提供丰富的输入输出引脚，支持各种外部设备和接口的连接。）: 500
+\end{itemize}
+
+可以看到，典型的开发板上通常会集成上述FPGA芯片，并提供一些资源：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  外部接口
+\end{enumerate}
+
+\begin{itemize}
+\item
+  GPIO：通用输入输出引脚，用于连接外部电路和传感器。
+\item
+  通信接口：如UART、SPI、I2C等，用于与其他设备进行通信。
+\item
+  存储器：包括DDR RAM用于高速数据存储，以及Flash存储器用于程序和配置文件存储。
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  时钟资源
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  晶振和时钟管理：提供稳定的时钟源和时钟分配器，用于同步各个部分的操作。
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  调试和连接
+\end{enumerate}
+
+\begin{itemize}
+\item
+  调试接口：如JTAG接口，用于FPGA的调试和编程。
+\item
+  电源管理：提供电源管理电路，以确保稳定的工作电压和电流。
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  附件功能
+\end{enumerate}
+
+\begin{itemize}
+\item
+  用户按键和LED指示灯：用于简单的用户交互和状态指示。
+\item
+  LCD显示器接口：用于连接液晶显示屏显示信息。
+\end{itemize}
+
+\subsection{龙芯CPU设计与体系结构教学实验系统}\label{sec:02-design-environment-005}
+
+综合完成后，需要向FPGA烧录比特流，然后烧写Flash ROM，再通过串口观察输出，具体而言，需要提前准备龙芯FPGA开发板、FPGA电源线、FPGA下载线、Flash芯片、串口线、Vivado以及串口软件。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Flash 芯片正确放置 FPGA 开发板上。
+\item
+  FPGA 开发板与电脑连接下载线、串口线。
+\item
+  电脑上打开 Vivado 工具中的 Open Hardware Manager，打开串口软件。
+\item
+  FPGA 板上电，如正常下载 bit 流文件一样下载 programmer\_by\_uart.bit 至 FPGA 上。
+\item
+  串口软件，波特率选为 230400。
+\item
+  串口连接正常后根据提示，键盘输入 x 表示开始 xmodem 传输。
+\item
+  串口软件使用 xmodem 模式传输 binary 文件。
+\item
+  等待传输完成。
+\end{enumerate}
+
+支持便完成了Flash ROM的烧写。特别地，对于其他类型的FPGA，可能没有对应的串口烧录比特率，此时则需要手动通过Flash烧录器对Flash进行烧录，烧录时需小心Flash芯片的摆放位置，以免烧坏芯片。
+
+\section{软件调试环境}\label{sec:02-design-environment-006}
+
+\subsection{RTL仿真验证介绍}\label{sec:02-design-environment-007}
+
+在进行RTL设计时，通常需要进行仿真、验证和测试，以确保设计的正确性和功能性。仿真分为前仿真、后仿真。
+
+前仿真是在逻辑综合（Synthesis）之前进行的仿真过程，主要用于验证RTL代码的功能和行为。前仿真通常使用的工具包括：
+
+\begin{itemize}
+\item
+  Verilator：开源Verilog仿真器，用于对Verilog代码进行快速仿真和验证。通过将Verilog代码转换为C++代码，然后进行编译和仿真，能够提供较高的仿真速度和效率。
+\item
+  Vivado Simulator：Vivado Simulator是Xilinx Vivado工具套件中的一部分，用于Verilog和VHDL的仿真和验证。支持多种仿真模式和波形显示，适合对复杂的RTL设计进行验证和调试。
+\end{itemize}
+
+后仿真是在逻辑综合之后、实际FPGA或ASIC实现之前进行的仿真，目的是验证综合后的电路行为是否符合预期。后仿真使用的工具包括：
+
+\begin{itemize}
+\tightlist
+\item
+  VCS（Synopsys工具）：基于Verilog和VHDL的综合仿真工具，广泛用于后仿真和验证ASIC设计。提供了丰富的仿真和调试功能，支持高级优化和性能分析，适用于复杂的RTL设计和验证任务。
+\end{itemize}
+
+除了上述提到的Verilator、Vivado Simulator和VCS之外，还有一些其他常用的仿真工具：
+
+\begin{itemize}
+\item
+  ModelSim：Mentor Graphics的仿真工具，支持Verilog、VHDL和SystemVerilog的仿真和调试。
+\item
+  Questa：Synopsys的仿真工具，也支持Verilog、VHDL和SystemVerilog，并提供了高级调试和分析功能。
+\end{itemize}
+
+\subsection{Vivado软件简介}\label{sec:02-design-environment-008}
+
+如前面所述，Vivado是用于开发Vilinx FPGA的一款集成的EDA（Electronic Design Automation，电子设计自动化）软件工具，专门用于FPGA设计的各个阶段，包括仿真、综合（Synthesis）、布局布线（Implementation）以及验证。
+
+作为综合的EDA工具链，Vivado提供了完整的EDA工具链，涵盖了FPGA设计流程中的各个关键步骤，从设计的初始阶段到最终的实现和验证。设计者可以使用Vivado进行前端设计，包括硬件描述语言（如Verilog、VHDL）编写和逻辑设计。Vivado支持高级综合（High-Level Synthesis，HLS），可以从高级语言（如C、C++）自动转换为硬件描述。同时，Vivado还包含强大的仿真工具，用于验证设计的功能和时序正确性，确保设计符合预期的行为。
+
+综合是将硬件描述语言代码转换为FPGA可配置的逻辑单元和连线的过程。Vivado的综合工具能够优化设计，提高性能并确保满足时序要求。
+在综合阶段，设计者可以进行约束设置，以指导工具如何优化设计以满足时序和资源利用率的要求。
+
+Vivado也具有芯片后端工具的功能，例如用于布局布线，负责将逻辑元素放置在FPGA芯片上，并创建物理布线，确保电路的时序和电气特性符合要求。
+
+\section{实验虚拟机}\label{sec:02-design-environment-009}
+
+\subsection{实验虚拟机介绍}\label{sec:02-design-environment-010}
+
+预装软件或环境：
+
+\begin{itemize}
+\tightlist
+\item
+  Vivado == 2019.2
+\item
+  VCS == 2018.09
+\item
+  Verdi2018 == 2018.06
+\item
+  chiplab == commit eb2a1eb479d89aa8382ec77f03473e1e2f0a6924
+\item
+  la32r编译工具链 == v0.0.3
+\item
+  verilator == v5.027
+\item
+  la32r-linux == v0.3
+\item
+  la32r-qemu == v0.0.2
+\end{itemize}
+
+\subsection{实验虚拟机获取}\label{sec:02-design-environment-011}
+
+虚拟机获取链接：\url{https://pan.baidu.com/s/1CRMtk3d95JQnBx6FbHBWXA?pwd=chip}
+
+\subsection{实验虚拟机安装}\label{sec:02-design-environment-012}
+
+我们的虚拟机以OVF格式提供。下面介绍如何导入OVF。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  打开Vmware窗口
+\item
+  点击``文件''---``打开''，选择一个OVF文件，点击``打开''
+\item
+  输入OVF文件导入后的虚拟机名称、选择虚拟机的存放位置，点击``导入''
+\item
+  导入OVF文件需要较长的时间，请耐心等待，OVF文件导入后，就可以在虚拟机列表中看到OVF文件转换的虚拟机了
+\item
+  虚拟机用户\texttt{chip-env}的密码：\texttt{12345678}
+\end{enumerate}
+
+\subsection{实验代码仓库获取}\label{sec:02-design-environment-013}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/BUAA-CI-LAB/BHLA.README}{北航龙架构处理器芯片敏捷设计框架（BHLA）}
+\item
+  \href{https://gitee.com/loongson-edu}{龙芯教育提供的相关资料}
+\end{itemize}

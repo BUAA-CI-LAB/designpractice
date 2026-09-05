@@ -1,0 +1,26 @@
+{
+  "signal": [
+    {"name": "clk", "wave": "p.................."},
+    {},
+    ["AR Channel",
+      {"name": "ARADDR", "wave":  "x2.x...............", "data": ["Base Addr"]},
+      {"name": "ARLEN", "wave":   "x2.x...............", "data": ["4 transfers"]},
+      {"name": "ARSIZE", "wave":  "x2.x...............", "data": ["2 bytes"]},
+      {"name": "ARVALID", "wave": "01.0..............."},
+      {"name": "ARREADY", "wave": "0.10..............."}
+    ],
+    {},
+    ["R Channel",
+      {"name": "RDATA", "wave":   "x...2..x..2x.2x2..x", "data": ["D0", "D1", "D2", "D3"]},
+      {"name": "RLAST", "wave":   "x...0..x..0x.0x1..x"},
+      {"name": "RVALID", "wave":  "x..01..0..10.101..0"},
+      {"name": "RREADY", "wave":  "x..0..101.....0..10"}
+    ]
+  ],
+  "config": {
+  },
+  "head":{
+    "tick":0,
+    "every":1
+  }
+}

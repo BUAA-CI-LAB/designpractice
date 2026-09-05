@@ -1,0 +1,459 @@
+% !TeX root = ../main.tex
+% 原始章节：06-more-inst.Rmd
+
+\chapter{支持更多指令设计}\label{chap:06-more-instructions}
+
+在处理器设计中，添加新指令是一项复杂的任务，要求仔细规划和系统性的调整，下面将以EuLA处理器为例，详细介绍如何在处理器中添加指令。
+
+\section{在流水线中添加简单运算类指令}\label{sec:06-more-instructions-001}
+
+算术运算类指令：add.w、addi.w、pcaddu12i
+
+比较运算类指令：slt、slti
+
+逻辑运算类指令：and、or、nor、xor、andi、ori、xori
+
+移位运算类指令：sll.w、sra.w、srli.w
+
+\subsection{算术运算类指令}\label{sec:06-more-instructions-002}
+
+以add.w和addi.w指令为例。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  添加译码信号
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/isa/la32r
+object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
+  def ADDW    = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0_?????_?????_?????")
+  def ADDIW   = BitPat("b0 0 0 0 0 0 1 0 1 0_????????????_?????_?????")
+  def PCADDU12I = BitPat("b0 0 0 1 1 1 0_????????????????????_?????")
+
+  val table = Array( // (instrType, FuType, FuOpType, isrfWen)
+    ADDW        -> List(Instr3R, FuType.alu, La32rALUOpType.add, true.B),
+    ADDIW       -> List(Instr2RI12, FuType.alu, La32rALUOpType.add, true.B),
+    PCADDU12I   -> List(Instr1RI20, FuType.alu, La32rALUOpType.pcaddu12i, true.B),
+  )
+}
+\end{CodeBlock}
+
+这说明，add.w和addi.w指令需要通过ALU得到计算结果，并且ALU会进行加法操作，最终操作结果会写回寄存器。根据instrType信号，会进行操作数选择，可以参考：
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/frontend/IDU.scala
+val SrcTypeTable = List(
+    Instr3R     -> (SrcType.reg, SrcType.reg),
+    Instr2RI12  -> (SrcType.reg, SrcType.imm),
+    Instr1RI20  -> (SrcType.imm, SrcType.imm),
+  )
+\end{CodeBlock}
+
+这说明add.w指令均使用寄存器值作为操作数，而addi.w指令其中一个操作数源于寄存器。对于Instr2RI12指令，其操作数会对指令的21\textasciitilde10位进行符号拓展：
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/frontend/IDU.scala
+val imm = LookupTree(instrType, List(
+    Instr2RI12    -> SignExt(instr(21, 10), XLEN),
+    Instr1RI20    -> SignExt(instr(24, 5), XLEN),
+  ))
+\end{CodeBlock}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  修改ALU
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/backend/fu/ALU.scala
+class La32rALU(hasBru : Boolean = false) extends AbstractALU {
+
+  val rj = src1
+  val rk = src2
+  val imm = io.offset
+
+  val adderRes = (src1 +& (src2 ^ Fill(XLEN, isAdderSub))) + isAdderSub
+
+  val aluRes = LookupTreeDefault(func, adderRes, List(
+    La32rALUOpType.add   -> adderRes,
+    La32rALUOpType.pcaddu12i -> (src1 + Cat(src2(19, 0), 0.U(12.W))),
+  ))
+}
+\end{CodeBlock}
+
+\subsection{比较运算类指令}\label{sec:06-more-instructions-003}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  添加译码信号
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/isa/la32r
+object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
+  def SLT     = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0_?????_?????_?????")
+  def SLTI    = BitPat("b0 0 0 0 0 0 1 0 0 0_????????????_?????_?????")
+
+  val table = Array( // (instrType, FuType, FuOpType, isrfWen)
+    SLT         -> List(Instr3R, FuType.alu, La32rALUOpType.slt, true.B),
+    SLTI        -> List(Instr2RI12, FuType.alu, La32rALUOpType.slt, true.B),
+  )
+}
+\end{CodeBlock}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  修改ALU
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/backend/fu/ALU.scala
+class La32rALU(hasBru : Boolean = false) extends AbstractALU {
+
+  val rj = src1
+  val rk = src2
+  val imm = io.offset
+
+  val aluRes = LookupTreeDefault(func, adderRes, List(
+     La32rALUOpType.slt   -> (rj.asSInt() < rk.asSInt()),
+  ))
+}
+\end{CodeBlock}
+
+\subsection{逻辑运算类指令}\label{sec:06-more-instructions-004}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  添加译码信号
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/isa/la32r/LA32R.scala
+object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
+  def NOR     = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0_?????_?????_?????")
+  def AND     = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 1_?????_?????_?????")
+  def OR      = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0_?????_?????_?????")
+  def XOR     = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 1_?????_?????_?????")
+  def ANDI    = BitPat("b0 0 0 0 0 0 1 1 0 1_????????????_?????_?????")
+  def ORI     = BitPat("b0 0 0 0 0 0 1 1 1 0_????????????_?????_?????")
+  def XORI    = BitPat("b0 0 0 0 0 0 1 1 1 1_????????????_?????_?????")
+
+  val table = Array( // (instrType, FuType, FuOpType, isrfWen)
+    NOR         -> List(Instr3R, FuType.alu, La32rALUOpType.nor, true.B),
+    AND         -> List(Instr3R, FuType.alu, La32rALUOpType.and, true.B),
+    OR          -> List(Instr3R, FuType.alu, La32rALUOpType.or, true.B),
+    XOR         -> List(Instr3R, FuType.alu, La32rALUOpType.xor, true.B),
+    ANDI        -> List(Instr2RI12ZEXT, FuType.alu, La32rALUOpType.and, true.B),
+    ORI         -> List(Instr2RI12ZEXT, FuType.alu, La32rALUOpType.or, true.B),
+    XORI        -> List(Instr2RI12ZEXT, FuType.alu, La32rALUOpType.xor, true.B),
+  )
+}
+\end{CodeBlock}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// // src/main/scala/eulacore/frontend/IDU.scala
+ val SrcTypeTable = List(
+    Instr2RI12ZEXT -> (SrcType.reg, SrcType.imm),
+  )
+\end{CodeBlock}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// // src/main/scala/eulacore/frontend/IDU.scala
+val imm = LookupTree(instrType, List(
+    Instr2RI12ZEXT -> ZeroExt(instr(21, 10), XLEN),
+  ))
+\end{CodeBlock}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  修改ALU
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/backend/fu/ALU.scala
+class La32rALU(hasBru : Boolean = false) extends AbstractALU {
+
+  val rj = src1
+  val rk = src2
+  val imm = io.offset
+
+  val aluRes = LookupTreeDefault(func, adderRes, List(
+      La32rALUOpType.nor   -> ~orRes,
+      La32rALUOpType.and   -> (rj & rk),
+      La32rALUOpType.or    -> orRes,
+      La32rALUOpType.xor   -> (rj ^ rk),
+  ))
+}
+\end{CodeBlock}
+
+\subsection{移位运算类指令}\label{sec:06-more-instructions-005}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  添加译码信号
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/isa/la32r/LA32R.scala
+object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
+  def SLLW    = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 1 1 1 0_?????_?????_?????")
+  def SRLW    = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 1 1 1 1_?????_?????_?????")
+  def SRAW    = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0_?????_?????_?????")
+  def SLLIW   = BitPat("b0 0 0 0 0 0 0 0 0 1 0 0 0 0_001_?????_?????_?????")
+  def SRLIW   = BitPat("b0 0 0 0 0 0 0 0 0 1 0 0 0 1_001_?????_?????_?????")
+  def SRAIW   = BitPat("b0 0 0 0 0 0 0 0 0 1 0 0 1 0_001_?????_?????_?????")
+
+  val table = Array( // (instrType, FuType, FuOpType, isrfWen)
+    SLLW        -> List(Instr3R, FuType.alu, La32rALUOpType.sll, true.B),
+    SRLW        -> List(Instr3R, FuType.alu, La32rALUOpType.srl, true.B),
+    SRAW        -> List(Instr3R, FuType.alu, La32rALUOpType.sra, true.B),
+    SLLIW       -> List(Instr2RI5, FuType.alu, La32rALUOpType.sll, true.B),
+    SRLIW       -> List(Instr2RI5, FuType.alu, La32rALUOpType.srl, true.B),
+    SRAIW       -> List(Instr2RI5, FuType.alu, La32rALUOpType.sra, true.B),
+  )
+}
+\end{CodeBlock}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/frontend/IDU.scala
+val SrcTypeTable = List(
+    Instr2RI5   -> (SrcType.reg, SrcType.imm),
+)
+\end{CodeBlock}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/frontend/IDU.scala
+val imm = LookupTree(instrType, List(
+    Instr2RI5     -> ZeroExt(instr(14, 10), XLEN),
+))
+\end{CodeBlock}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  修改ALU
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/backend/fu/ALU.scala
+class La32rALU(hasBru : Boolean = false) extends AbstractALU {
+
+  val rj = src1
+  val rk = src2
+  val imm = io.offset
+
+  val aluRes = LookupTreeDefault(func, adderRes, List(
+      La32rALUOpType.sll   -> sllRes,
+      La32rALUOpType.srl   -> srlRes,
+      La32rALUOpType.sra   -> sraRes,
+  ))
+}
+\end{CodeBlock}
+
+\section{在流水线中添加乘除类指令}\label{sec:06-more-instructions-006}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  添加译码信号
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/isa/la32r/LA32R.scala
+object LA32R_MDUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
+ def MULW    = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0_?????_?????_?????")
+ def MULHW   = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 1_?????_?????_?????")
+ def MULHWU  = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 1 0_?????_?????_?????")
+ def DIVW    = BitPat("b0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0_?????_?????_?????")
+ def MODW    = BitPat("b0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1_?????_?????_?????")
+ def DIVWU   = BitPat("b0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0_?????_?????_?????")
+ def MODWU   = BitPat("b0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1_?????_?????_?????")
+
+ val table = Array( // (instrType, FuType, FuOpType, isrfWen)
+   MULW      -> List(Instr3R, FuType.mdu, MDUOpType.mul, true.B),
+   MULHW     -> List(Instr3R, FuType.mdu, MDUOpType.mulh, true.B),
+   MULHWU    -> List(Instr3R, FuType.mdu, MDUOpType.mulhu, true.B),
+   DIVW      -> List(Instr3R, FuType.mdu, MDUOpType.div, true.B),
+   DIVWU     -> List(Instr3R, FuType.mdu, MDUOpType.divu, true.B),
+   MODW      -> List(Instr3R, FuType.mdu, MDUOpType.rem, true.B),
+   MODWU     -> List(Instr3R, FuType.mdu, MDUOpType.remu, true.B),
+ )
+}
+\end{CodeBlock}
+
+FuType 选择 FuType.mdu，指令在后端时会选择乘除器（MDU）作为功能单元，MDU会根据 MDUOpType 选择对应操作。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  添加乘除法器
+\end{enumerate}
+
+出于面积和成本的限制，乘法器可以有不同的实现方式，例如一位移位乘法器、booth两位移位乘法器、华莱士树型乘法器。高性能的乘法器可通过面积换时间，通过提高设计复杂度降低惩罚执行周期数或周期延迟，除法器同样具有多种实现方式。而由于不同算法的差异，乘除器进行乘法或除法的时间不固定，因此接入时需要与前后模块增加握手信号，以保证数据的有效传输。
+
+乘除器的一种实现方式可参见 \url{https://github.com/BUAA-CI-LAB/eulacore/blob/main/src/main/scala/eulacore/backend/fu/MDU.scala}
+
+添加乘除法器后，在后端进行实例化，数据通过握手信号 valid-ready 进行写入。
+
+\section{在流水线中添加转移和访存指令}\label{sec:06-more-instructions-007}
+
+转移指令：beq、bne、b、jirl
+访存指令：ld.w、st.w
+
+\subsection{转移指令}\label{sec:06-more-instructions-008}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  添加译码信号
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/isa/la32r/LA32R.scala
+object LA32R_BRUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
+  def JIRL  = BitPat("b0 1 0 0 1 1_????????????????_?????_?????")
+  def B     = BitPat("b0 1 0 1 0 0_????????????????_??????????")
+  def BL    = BitPat("b0 1 0 1 0 1_????????????????_??????????")
+  def BEQ   = BitPat("b0 1 0 1 1 0_????????????????_?????_?????")
+  def BNE   = BitPat("b0 1 0 1 1 1_????????????????_?????_?????")
+  def BLT   = BitPat("b0 1 1 0 0 0_????????????????_?????_?????")
+  def BGE   = BitPat("b0 1 1 0 0 1_????????????????_?????_?????")
+  def BLTU  = BitPat("b0 1 1 0 1 0_????????????????_?????_?????")
+  def BGEU  = BitPat("b0 1 1 0 1 1_????????????????_?????_?????")
+
+  val table = Array( // (instrType, FuType, FuOpType, isrfWen)
+    JIRL      -> List(Instr2RI16, FuType.bru, La32rALUOpType.jirl, true.B),
+    B         -> List(InstrI26, FuType.bru, La32rALUOpType.b, false.B),
+    BL        -> List(InstrI26, FuType.bru, La32rALUOpType.call, true.B),
+    BEQ       -> List(InstrBranch, FuType.bru, La32rALUOpType.beq, false.B),
+    BNE       -> List(InstrBranch, FuType.bru, La32rALUOpType.bne, false.B),
+    BLT       -> List(InstrBranch, FuType.bru, La32rALUOpType.blt, false.B),
+    BGE       -> List(InstrBranch, FuType.bru, La32rALUOpType.bge, false.B),
+    BLTU      -> List(InstrBranch, FuType.bru, La32rALUOpType.bltu, false.B),
+    BGEU      -> List(InstrBranch, FuType.bru, La32rALUOpType.bgeu, false.B),
+  )
+}
+\end{CodeBlock}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/frontend/IDU.scala
+val SrcTypeTable = List(
+    Instr2RI16  -> (SrcType.reg, SrcType.imm),
+    InstrI26    -> (SrcType.imm, SrcType.imm),
+    InstrBranch -> (SrcType.reg, SrcType.reg),
+  )
+\end{CodeBlock}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/frontend/IDU.scala
+ val imm = LookupTree(instrType, List(
+    Instr2RI16    -> SignExt(instr(25, 10), XLEN),
+    InstrI26      -> SignExt(Cat(instr(9, 0), instr(25, 10)), XLEN),
+    InstrBranch   -> SignExt(instr(25, 10), XLEN),
+  ))
+\end{CodeBlock}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  添加分支跳转单元
+\end{enumerate}
+
+分支跳转指令进入 BRU 后，会计算实际跳转地址，并跟指令 NPC 进行比对，如果比对失败，则会对指令附加分支预测失败的相关信息，指令在 ROB 退休时进行前端重定向。
+
+在 eulacore 中，BRU 复用了 ALU，可以参考 \url{https://github.com/BUAA-CI-LAB/eulacore/blob/main/src/main/scala/eulacore/backend/fu/ALU.scala}
+
+\subsection{访存指令}\label{sec:06-more-instructions-009}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  添加译码信号
+\end{enumerate}
+
+% 代码语言：scala
+\begin{CodeBlock}
+// src/main/scala/eulacore/isa/la32r/LA32R.scala
+object LA32R_LSUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
+  def LDB   = BitPat("b0 0 1 0 1 0 0 0 0 0_????????????_?????_?????")
+  def LDH   = BitPat("b0 0 1 0 1 0 0 0 0 1_????????????_?????_?????")
+  def LDW   = BitPat("b0 0 1 0 1 0 0 0 1 0_????????????_?????_?????")
+  def STB   = BitPat("b0 0 1 0 1 0 0 1 0 0_????????????_?????_?????")
+  def STH   = BitPat("b0 0 1 0 1 0 0 1 0 1_????????????_?????_?????")
+  def STW   = BitPat("b0 0 1 0 1 0 0 1 1 0_????????????_?????_?????")
+  def LDBU  = BitPat("b0 0 1 0 1 0 1 0 0 0_????????????_?????_?????")
+  def LDHU  = BitPat("b0 0 1 0 1 0 1 0 0 1_????????????_?????_?????")
+  def LLW = BitPat("b0 0 1 0 0 0 0 0_??????????????_?????_?????")
+  def SCW = BitPat("b0 0 1 0 0 0 0 1_??????????????_?????_?????")
+
+  val table = Array( // (instrType, FuType, FuOpType, isrfWen)
+    LDB       -> List(Instr2RI12, FuType.lsu, La32rLSUOpType.lb, true.B),
+    LDH       -> List(Instr2RI12, FuType.lsu, La32rLSUOpType.lh, true.B),
+    LDW       -> List(Instr2RI12, FuType.lsu, La32rLSUOpType.lw, true.B),
+    STB       -> List(InstrStore, FuType.lsu, La32rLSUOpType.sb, false.B),
+    STH       -> List(InstrStore, FuType.lsu, La32rLSUOpType.sh, false.B),
+    STW       -> List(InstrStore, FuType.lsu, La32rLSUOpType.sw, false.B),
+    LDBU      -> List(Instr2RI12, FuType.lsu, La32rLSUOpType.lbu, true.B),
+    LDHU      -> List(Instr2RI12, FuType.lsu, La32rLSUOpType.lhu, true.B),
+    LLW       -> List(Instr2R, FuType.lsu, La32rLSUOpType.llw, true.B),
+    SCW       -> List(InstrStore, FuType.lsu, La32rLSUOpType.scw, true.B),
+  )
+}
+\end{CodeBlock}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  添加访存单元
+\end{enumerate}
+
+出于简易考虑，eulacore 采用了非流水的访存单元，每次仅可处理一条访存请求，并通过握手信号与前后模块进行联系。具体实现可以参考 \url{https://github.com/BUAA-CI-LAB/eulacore/blob/main/src/main/scala/eulacore/backend/fu/La32rUnpipelinedLSU.scala}
+
+为了使得访存请求处理更为高效，在更复杂的处理器架构中，还可以使用流水化的访存单元，以此提高访存指令的吞吐量。在流水化访存单元中，存在两个FIFO缓存，分别是访存请求缓存和store请求缓存。每周期至多向访存单元送入一条访存请求，请求写入reqBuf后，reqBuf头指针移动。

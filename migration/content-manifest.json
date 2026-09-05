@@ -1,0 +1,1370 @@
+{
+  "source_directory": "/mnt/d/Desktop/教材与专著/CPU_BOOK/designpractice",
+  "source_tex_sha256": "00613904313fddee7f205353663bacdb7bd3449a4bb039622cadc25646a1c853",
+  "chapters": [
+    {
+      "source": "index.Rmd",
+      "target": "chapters/00-preface.tex",
+      "source_sha256": "876e2b4e5bc88c00fb83927ad38175ce39632d608230058c8a15a7bf9bee5f64",
+      "headings": 1,
+      "source_code_blocks": [],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 0,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "01-abstract.Rmd",
+      "target": "chapters/01-overview.tex",
+      "source_sha256": "40377cd7c337e5e61244a0f6a8851bf50d0525f87a12cffbfe92baf04b77cf3d",
+      "headings": 10,
+      "source_code_blocks": [],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 3,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "02-design-env.Rmd",
+      "target": "chapters/02-design-environment.tex",
+      "source_sha256": "4d09d757c167e45d1b89cb7c9a889baae70cff2532461512c80653c8153d8a1d",
+      "headings": 14,
+      "source_code_blocks": [],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 0,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "03-digital-logic.Rmd",
+      "target": "chapters/03-digital-logic.tex",
+      "source_sha256": "22cf12e0809677adb9d2af1702ca7ecdb9e93233111425b7f76a9c46376c9c60",
+      "headings": 34,
+      "source_code_blocks": [
+        {
+          "language": "verilog",
+          "sha256": "adcc7b71637d993884e580134ef91cd689ecbdae7f2897ac0e82f422cc185067",
+          "lines": 7
+        },
+        {
+          "language": "verilog",
+          "sha256": "c6093ab86f31366bcbad314cb08a50dcca84acda1c6343ca545438706f6a1a12",
+          "lines": 3
+        }
+      ],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 0,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "04-toolchain.Rmd",
+      "target": "chapters/04-toolchain.tex",
+      "source_sha256": "94c2c34d38b5b9df105c01fea0caf80963ba51e15a0508f7624693fc173e2140",
+      "headings": 19,
+      "source_code_blocks": [
+        {
+          "language": "bash",
+          "sha256": "5939d3af5490f42020f883a09ebeaa85a769734bd7d8aca2baa5b94380ca243c",
+          "lines": 1
+        },
+        {
+          "language": "verilog",
+          "sha256": "93679608c0feee7da2142ca4a2472c3bf5b6b5c882b016f3a883bf9537d98b9e",
+          "lines": 47
+        },
+        {
+          "language": "bash",
+          "sha256": "7383db17f272978c17ad96fe102d8472d04a9e148b1d61b0e164a9d21218052f",
+          "lines": 1
+        },
+        {
+          "language": "verilog",
+          "sha256": "3bf93cf97c0d4c6c6f5136d1f42be6455122ec29cc9c8328d6de3c656421b658",
+          "lines": 16
+        },
+        {
+          "language": "verilog",
+          "sha256": "49bee487f86a93de125b12128c2f6cf1c5e666562ba802b8c355f829efaefc5f",
+          "lines": 7
+        },
+        {
+          "language": "bash",
+          "sha256": "cb1ccf1e87b472d7efd60d203de66f5012598d5dbd5fdcf826ce6bf76db3c747",
+          "lines": 1
+        },
+        {
+          "language": "bash",
+          "sha256": "3c7227e533392ad70e8e464e5c54de5225cc5106b87cb49fc17be912f20feaf6",
+          "lines": 3
+        },
+        {
+          "language": "bash",
+          "sha256": "c7bd51b35deedfd40a47f97931bfa810fe743ad2bf1276d59768aac8a475ddcc",
+          "lines": 2
+        },
+        {
+          "language": "bash",
+          "sha256": "998244f14c03b422f1688239b3a410966b3baa11fe21a55510e87755a7881ffb",
+          "lines": 5
+        },
+        {
+          "language": "bash",
+          "sha256": "7335458f14545dc9cba84f043bccc03aa873e2ec557d43fdb7e60dfe6fabba8f",
+          "lines": 1
+        },
+        {
+          "language": "verilog",
+          "sha256": "93679608c0feee7da2142ca4a2472c3bf5b6b5c882b016f3a883bf9537d98b9e",
+          "lines": 47
+        },
+        {
+          "language": "bash",
+          "sha256": "ba7256fa4b1f1212ee54fbed9a0db0e50320f72771d6731febe3690b3863b709",
+          "lines": 5
+        },
+        {
+          "language": "bash",
+          "sha256": "958166a7a0df240e05e71d6469360468f8d35eb9c1b33e20c2e04bda3dc2c8b6",
+          "lines": 3
+        },
+        {
+          "language": "dts",
+          "sha256": "6c0eb55482aa38c66dd4ca0fbc865d0fd9cdf5146948750f8b9033955529f6c0",
+          "lines": 174
+        },
+        {
+          "language": "makefile",
+          "sha256": "918e8435b2933a7b0aeaa4189ceccf59b4c7c1eef477dcbd509d54641acb382b",
+          "lines": 3
+        },
+        {
+          "language": "text",
+          "sha256": "cc300f7ac9dfbd27b26a319a3353b9b031a2b852cfe109947d2ae926a0f1c090",
+          "lines": 336
+        },
+        {
+          "language": "c",
+          "sha256": "940fd98b1852c8011382f48c69a013d941a8f7f65ceb70067d387fedc1ce9034",
+          "lines": 8
+        },
+        {
+          "language": "text",
+          "sha256": "c4820a00ee319fd93bd17303544df83e79a987d6a51faa4bd415aaa41defb45d",
+          "lines": 12
+        }
+      ],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 2,
+      "inline_urls_repaired": [
+        "https://gitee.com/loongson-edu/la32r-QEMU",
+        "https://github.com/BUAA-CI-LAB/eula-env",
+        "https://github.com/BUAA-CI-LAB/MegaSoC"
+      ]
+    },
+    {
+      "source": "05-simple-cpu.Rmd",
+      "target": "chapters/05-simple-cpu.tex",
+      "source_sha256": "011d4ac6d4ece0fab27368dd640183e970cc94706e712028ebcbf4758729986c",
+      "headings": 18,
+      "source_code_blocks": [
+        {
+          "language": "verilog",
+          "sha256": "93679608c0feee7da2142ca4a2472c3bf5b6b5c882b016f3a883bf9537d98b9e",
+          "lines": 47
+        }
+      ],
+      "tables": 2,
+      "table_breaks_repaired": 1,
+      "figures": 1,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "06-more-inst.Rmd",
+      "target": "chapters/06-more-instructions.tex",
+      "source_sha256": "f24e3682eef6e6c28a406dc9d0924891536d1ae774482043dde906eab60487c9",
+      "headings": 10,
+      "source_code_blocks": [
+        {
+          "language": "scala",
+          "sha256": "06cf528cccfc677d1d767767b80f634e1818123e6a302529d182008d26fc464f",
+          "lines": 12
+        },
+        {
+          "language": "scala",
+          "sha256": "09bbae5d887d324b057d50131457d6fa86e5908eeae6af42ec172feb3eaa4c7b",
+          "lines": 6
+        },
+        {
+          "language": "scala",
+          "sha256": "4a94e20e645c2aa15b2cd1ddd7fa6721bc01e5d5cdf4d65c699c13b29a8cbd07",
+          "lines": 5
+        },
+        {
+          "language": "scala",
+          "sha256": "2fdf2a82cf659e0190480334de58c98c4a42e222863a48d04bf320ce9d697692",
+          "lines": 14
+        },
+        {
+          "language": "scala",
+          "sha256": "b593a9e3ce03c41823011e3308f1e4492190a8747cd939c2d956c233e871232a",
+          "lines": 10
+        },
+        {
+          "language": "scala",
+          "sha256": "f4d54bf659056cad8cca11f7bf1323bca499bf4d0d620315e47d2292e2a08ccd",
+          "lines": 11
+        },
+        {
+          "language": "scala",
+          "sha256": "400b6278131373566ff575bda68bc7cd0e039309edf5755079bef8d0e32ef770",
+          "lines": 20
+        },
+        {
+          "language": "scala",
+          "sha256": "90b2a4c76e698b1a039a524a98c206078c512477993123b91119bb25a0d2a640",
+          "lines": 4
+        },
+        {
+          "language": "scala",
+          "sha256": "643d8daa483cddcc3faf8a95094e66ac15f632430f513d03f2514dee6008ba57",
+          "lines": 4
+        },
+        {
+          "language": "scala",
+          "sha256": "e24996c18385e1e57e55b18b3ec4679623fba306beb4946fe92bbdd4a2e46bd6",
+          "lines": 14
+        },
+        {
+          "language": "scala",
+          "sha256": "37bcc4d07cb6659658606c60b0bdac6910242fe51f578447c50d49b08332ebf9",
+          "lines": 18
+        },
+        {
+          "language": "scala",
+          "sha256": "07be97258e265a8b6dab4d2a730923d4eebb19f1292e6f4ed04600594919e5cf",
+          "lines": 4
+        },
+        {
+          "language": "scala",
+          "sha256": "437278fa0956734723ef5666c1dfd2bc6634284d1e72661029d94d9372182683",
+          "lines": 4
+        },
+        {
+          "language": "scala",
+          "sha256": "ef8ea98fb4ec1b52d8b03f752a1f4e8ce343de749f374b1209cf9f4407eada27",
+          "lines": 13
+        },
+        {
+          "language": "scala",
+          "sha256": "26d5a37636ffb4030068fb69c3c547cdaaa0a73a63c39179032364befcc2a9f0",
+          "lines": 20
+        },
+        {
+          "language": "scala",
+          "sha256": "95320315e3917f9b7a54c9bade67f5aa78bbf771d02e039f97abf170f300b446",
+          "lines": 24
+        },
+        {
+          "language": "scala",
+          "sha256": "1a2d43f67b00d3d74c9bfbf8fc5c4f63d81439cdc7ff3e94cf3c7f180649366f",
+          "lines": 6
+        },
+        {
+          "language": "scala",
+          "sha256": "df40efd6d98dbc8d029fc5b13f67da8a3abb8f854a92133b46b1ab76b6af5e3a",
+          "lines": 6
+        },
+        {
+          "language": "scala",
+          "sha256": "73ce2e89e854183cad36f70855d8e61e1ee0a5fd4c154db9c5b7a68a02c25d0a",
+          "lines": 26
+        }
+      ],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 0,
+      "inline_urls_repaired": [
+        "https://github.com/BUAA-CI-LAB/eulacore/blob/main/src/main/scala/eulacore/backend/fu/MDU.scala",
+        "https://github.com/BUAA-CI-LAB/eulacore/blob/main/src/main/scala/eulacore/backend/fu/ALU.scala",
+        "https://github.com/BUAA-CI-LAB/eulacore/blob/main/src/main/scala/eulacore/backend/fu/La32rUnpipelinedLSU.scala"
+      ]
+    },
+    {
+      "source": "07-exception.Rmd",
+      "target": "chapters/07-exceptions.tex",
+      "source_sha256": "8e2034ddd4a4545a57d698f179f9bad9973a478ea53e9fcdf439ba98f2cf3c9d",
+      "headings": 19,
+      "source_code_blocks": [],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 0,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "08-bus-and-soc.Rmd",
+      "target": "chapters/08-bus-and-soc.tex",
+      "source_sha256": "6b7de230c48e4df43951525494532b9ee0909fc9a2a0408143638efab579e32a",
+      "headings": 30,
+      "source_code_blocks": [],
+      "tables": 6,
+      "table_breaks_repaired": 0,
+      "figures": 7,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "09-cache.Rmd",
+      "target": "chapters/09-cache.tex",
+      "source_sha256": "e2394de181f0424f1b49211c017afc600865ddcb48e40fba37e1544386c3a0b3",
+      "headings": 32,
+      "source_code_blocks": [
+        {
+          "language": "verilog",
+          "sha256": "eb155663d37d3c4213f4ed57ea23f9df1d5fb368b7dcf8a8e0d7266539d99518",
+          "lines": 3
+        },
+        {
+          "language": "verilog",
+          "sha256": "075de59db3b49c4e9129ed67cc3aade037ac29477f794e0526eacd2b29b825a4",
+          "lines": 6
+        },
+        {
+          "language": "text",
+          "sha256": "96b79d6858d7006924d21cf0911765a0aa5a39e6c30ab9d784407aaa2ec20b19",
+          "lines": 5
+        }
+      ],
+      "tables": 5,
+      "table_breaks_repaired": 0,
+      "figures": 2,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "10-mmu.Rmd",
+      "target": "chapters/10-mmu.tex",
+      "source_sha256": "c919c7315a7dd37ea0668a8cf4859de2024dd351c933ca1d953a623e0b53dd3d",
+      "headings": 17,
+      "source_code_blocks": [
+        {
+          "language": "asm",
+          "sha256": "f97fcbca6b92cd81106bbbd20f1ead390f1d67d8258f5225af99ca8885c63f17",
+          "lines": 22
+        },
+        {
+          "language": "asm",
+          "sha256": "65eeca00be27666bc132bf8c10ad9279ac0a77c96dc52afcfd2073efaea4f743",
+          "lines": 104
+        },
+        {
+          "language": "asm",
+          "sha256": "d7a9bacfe27ef633d5bab19e167fc59fecf4e7d78956a37b4fa4ec44aa1b2529",
+          "lines": 15
+        },
+        {
+          "language": "pseudocode",
+          "sha256": "7d965d2d826b95ca8b509e9cccd6db82fe3f32d474bc46b83c55d7582eaacd88",
+          "lines": 56
+        },
+        {
+          "language": "verilog",
+          "sha256": "68c6ee72a078ae2e066635c3f05f4845dde823343dbf2d072dfe0be072498c60",
+          "lines": 94
+        }
+      ],
+      "tables": 3,
+      "table_breaks_repaired": 6,
+      "figures": 2,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "11-advenced-cpu.Rmd",
+      "target": "chapters/11-advanced-cpu.tex",
+      "source_sha256": "5ab8f1ea208608add95f209bb1325d6bc010ae74cf78d564cbadb90c5dc2ecfa",
+      "headings": 25,
+      "source_code_blocks": [
+        {
+          "language": "c",
+          "sha256": "9b6c8a7f78e8d0133a955e49c077527ebf64d916dbe115fa2a89259b5831e644",
+          "lines": 24
+        },
+        {
+          "language": "text",
+          "sha256": "6f4c9a9c5598a086eaf4cf986afc0f08218f1783d69bc0e29e16b522f9700ad3",
+          "lines": 3
+        }
+      ],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 4,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "12-fpga-verification.Rmd",
+      "target": "chapters/12-fpga-verification.tex",
+      "source_sha256": "20fb85d3110e8638d1ba4818193387b4f452edab861ec794deebb1941c08c642",
+      "headings": 14,
+      "source_code_blocks": [
+        {
+          "language": "text",
+          "sha256": "9659802cdc6bf2d24873576835d3a65cb1b36a6cdea2d63ed2bb75c26cc53543",
+          "lines": 27
+        },
+        {
+          "language": "text",
+          "sha256": "cdf2af6c13e3ffecf79b96c540a8c78e94bf3982fb8004e51073fc190dea1093",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "6e0b16431cf8f00707ec7ee0a88c1376bd7e857e335fd163b76c33c83dce5da1",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "613a06228bbb3758f77ff96a150323d989108b11cb768dfdb476a1c6bf7706bf",
+          "lines": 27
+        },
+        {
+          "language": "text",
+          "sha256": "2a414307cfdb1eb0659e32b2b8bfb39d3054a711acd4ea2ae760a1d8e6662d8f",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "c5792c1960927821cdd6c6a3577acd35c75d6721ec770d9f89e5632f8690e8ef",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "cdf2af6c13e3ffecf79b96c540a8c78e94bf3982fb8004e51073fc190dea1093",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "6e0b16431cf8f00707ec7ee0a88c1376bd7e857e335fd163b76c33c83dce5da1",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "c5792c1960927821cdd6c6a3577acd35c75d6721ec770d9f89e5632f8690e8ef",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "e5579cf094341b9afd3fd730b629ac84d99450854ffd5df3a495e8e2eb6847b6",
+          "lines": 5
+        },
+        {
+          "language": "text",
+          "sha256": "d8deffd5b574e2959ba5a5ab80fc282bc5127f44e1b9e42054d7ecfc22d34546",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "c10053d81c4c608a50cf3e42b7baf658f51621e265e629d4eb392887687f1a82",
+          "lines": 2
+        },
+        {
+          "language": "text",
+          "sha256": "6e0b16431cf8f00707ec7ee0a88c1376bd7e857e335fd163b76c33c83dce5da1",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "5371de2f3088255e1fabd2c5e0441050adc120765f46efa22dc71b0eda28c6ab",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "439d0b9aa7105a084267d9a1561f1eb97d1912492d837fc8903bc56a70dbc388",
+          "lines": 1
+        },
+        {
+          "language": "text",
+          "sha256": "ac4afa90aa0d1f4542839c58783e99770167b08c9f10d27ec4a4c1d375c0f700",
+          "lines": 1
+        }
+      ],
+      "tables": 1,
+      "table_breaks_repaired": 0,
+      "figures": 5,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "13-opration-system.Rmd",
+      "target": "chapters/13-operating-system.tex",
+      "source_sha256": "6346c70a3e378abe35b229279ef546a3e5c3e37c76c2ccdd488901c76c6f59ec",
+      "headings": 25,
+      "source_code_blocks": [
+        {
+          "language": "c",
+          "sha256": "b1e67cf32907b804a4b58240bc3eea8214280fcd57180b41e92307c294327ed6",
+          "lines": 95
+        },
+        {
+          "language": "c",
+          "sha256": "b1286224198bcddaa0292f935c4d43f1b58f4ad7a1faa9ae5f422623f5c9a1e1",
+          "lines": 38
+        },
+        {
+          "language": "c",
+          "sha256": "31c8f51a636e12308eaf0c3c0983cb94436dd3383c32fe62605e8a10fd15d798",
+          "lines": 171
+        },
+        {
+          "language": "c",
+          "sha256": "95a3f98661d5f0b96d79f755c345b6df4372a325252447b910cf0c82281641d2",
+          "lines": 52
+        },
+        {
+          "language": "asm",
+          "sha256": "3a04656260387ed7a8145e380ef3115594ff98569384376ac6de88f6e926a94f",
+          "lines": 63
+        },
+        {
+          "language": "c",
+          "sha256": "9cdad5b182ce3959ca18362872664045e4c2bbc7d33f97f27cff76c8ee9568d5",
+          "lines": 51
+        },
+        {
+          "language": "asm",
+          "sha256": "65749d4fd2c2163aa4d2b2c16cfda0f81e87369792c00ac2ea5f669dba4a24e3",
+          "lines": 65
+        },
+        {
+          "language": "diff",
+          "sha256": "16bc6c707c44799fba005cae630db2f60aacb2a2c04d7fa34b65e8dbb7236d79",
+          "lines": 162
+        },
+        {
+          "language": "c",
+          "sha256": "7436e62ad6d6dd1bbb480b5159f7af52a8cdc937aadae792615e973df65cfbde",
+          "lines": 72
+        },
+        {
+          "language": "asm",
+          "sha256": "df994b41208de2293f4b710ad2751062e420c727ed39a60f7f0a62c530cf7afd",
+          "lines": 98
+        },
+        {
+          "language": "asm",
+          "sha256": "c7bf1eb838b33de7b70e1e177ff6c41461473c9a10391c61e20d4a57d8e7acbf",
+          "lines": 39
+        },
+        {
+          "language": "c",
+          "sha256": "d60846e5480675d0e53687ac0d4f20645d022baec0fcef93ae317f4caa444d66",
+          "lines": 129
+        },
+        {
+          "language": "c",
+          "sha256": "60ab0ffd22c29112240497a5b29eca6eb7499b66f9e8f8108b27556a13b62616",
+          "lines": 159
+        },
+        {
+          "language": "dts",
+          "sha256": "3cf3aceb1492954a4297d320f980113965f138a1ede942877c64140fa2cbc828",
+          "lines": 145
+        },
+        {
+          "language": "dts",
+          "sha256": "ff37f84701238e15e727423a62998b70852e8297b3cff9bf9a35715faa4dafa9",
+          "lines": 4
+        },
+        {
+          "language": "dts",
+          "sha256": "c6b80d17c079a89f2c58164c82f9e8d9c0b5b8e825389f688602155178c06895",
+          "lines": 13
+        },
+        {
+          "language": "text",
+          "sha256": "2b8598a06489b3bf19671d90003a0cf387c172a32f31cbdff9e9e73fb0354ce0",
+          "lines": 4
+        },
+        {
+          "language": "text",
+          "sha256": "9ef135831d48e324c70b82ccfabdeba77121edb1c6ed145d17e360b9e3f19630",
+          "lines": 10
+        },
+        {
+          "language": "dts",
+          "sha256": "778800f696eec76e316ab0b2b824639e87c90febf0511cee4c076ea7159ec474",
+          "lines": 4
+        },
+        {
+          "language": "dts",
+          "sha256": "f777402141656a45ecdab87d4d106485649e79b5d541cf0b85ae230ced131503",
+          "lines": 3
+        },
+        {
+          "language": "dts",
+          "sha256": "b2c67b2ca33dde267d1c15a257c33bc667149552a02a27a76dc4d3af5260473f",
+          "lines": 9
+        },
+        {
+          "language": "dts",
+          "sha256": "ef3a06617484734e3b19dc35e338176bc890b5ef0a42795aa010c0b91a14ba6b",
+          "lines": 1
+        },
+        {
+          "language": "dts",
+          "sha256": "1b319bccf00649110bb4fe5b844c33b8396cd4429cdf8c042e00e7df67855632",
+          "lines": 1
+        },
+        {
+          "language": "c",
+          "sha256": "9c6fc9adfb8dc384e44d7fdc9e46273cd42252eb6321667dd113ea8f03da4b8c",
+          "lines": 61
+        },
+        {
+          "language": "c",
+          "sha256": "d26cce2afcc127decaa3ebecf2f59787c5cc56adc74a72680d64409bc875fded",
+          "lines": 218
+        },
+        {
+          "language": "asm",
+          "sha256": "5711b863f3df367222021174e071341999b7023d8a9ae03d7f887b673757bda6",
+          "lines": 32
+        },
+        {
+          "language": "text",
+          "sha256": "5cc9520c90088c0e3fa681ecbb2af279c2907b82e2aa2ae9ef93bf18960c65e5",
+          "lines": 9
+        }
+      ],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 1,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "14-software.Rmd",
+      "target": "chapters/14-software.tex",
+      "source_sha256": "fd7d6f49d307a26dd0b85d4846a286b6b461c9f328992c9c16a0f28175813b33",
+      "headings": 4,
+      "source_code_blocks": [
+        {
+          "language": "bash",
+          "sha256": "08fa77f3f1fea003a798fc7a88b138a5af8bd591a015310eae4f470e9861f918",
+          "lines": 2
+        }
+      ],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 0,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "15-chip-impl-preparation.Rmd",
+      "target": "chapters/15-chip-preparation.tex",
+      "source_sha256": "b75c8757231054bd7568bb2b06df352d3e95205e292e75b933a203baed4f633a",
+      "headings": 14,
+      "source_code_blocks": [
+        {
+          "language": "systemverilog",
+          "sha256": "29837a6733ecbe1e85a118c8f551555a0b9c2cde8a944d65270773e795843077",
+          "lines": 12
+        },
+        {
+          "language": "shell",
+          "sha256": "1162e2fc68a902a3361448cf8cbbddcfa0655f2ec23fa665e15792b15e6dedf0",
+          "lines": 2
+        },
+        {
+          "language": "bash",
+          "sha256": "23f339beeca301806ab218868a94b8ae811283731784648238d717d1d1307b85",
+          "lines": 27
+        },
+        {
+          "language": "bash",
+          "sha256": "ffb6429299941db89fdb75878d1275c04407f9e2b8b3420ad252b45afdb5005f",
+          "lines": 1
+        },
+        {
+          "language": "bash",
+          "sha256": "e2d79bbe0e641f369d5219d8ec88819c154d945d34823942291ccdb5d429f931",
+          "lines": 1
+        },
+        {
+          "language": "verilog",
+          "sha256": "d2c4820c16dedf5a59d558705ec6fda6936fa53d8cf404a26e72953c55bd235d",
+          "lines": 6
+        },
+        {
+          "language": "bash",
+          "sha256": "d114b4c857cfc057b5dffe197e026538a9e8e47e78b09d8083d56c8b0e8951cd",
+          "lines": 2
+        },
+        {
+          "language": "text",
+          "sha256": "a55507f09add8628c8109b8816b23da191cb700effc9d4cbc3a8f00a6bc60245",
+          "lines": 15
+        },
+        {
+          "language": "text",
+          "sha256": "0493222ccfc15d0ccdb60ca8b4a2a266289eecf9323eb74141933d9673ca93d7",
+          "lines": 34
+        }
+      ],
+      "tables": 3,
+      "table_breaks_repaired": 3,
+      "figures": 2,
+      "inline_urls_repaired": [
+        "https://github.com/BUAA-CI-LAB/eula-env",
+        "https://github.com/BUAA-CI-LAB/am/blob/master/README.md"
+      ]
+    },
+    {
+      "source": "16-chip-frontend.Rmd",
+      "target": "chapters/16-chip-frontend.tex",
+      "source_sha256": "bb16ed359b6750a05aad710e71bf52ecdedb1ef873f7b4e5797e53272b067a48",
+      "headings": 37,
+      "source_code_blocks": [
+        {
+          "language": "verilog",
+          "sha256": "1cb9c624ec2d191782e3ca8435b15c46119e72237d1b9df89e984103fbb18b09",
+          "lines": 60
+        },
+        {
+          "language": "text",
+          "sha256": "2263733d9ac76cd9deb2b620ce7daba19f4769899991da2db72c28eb7f58fdb2",
+          "lines": 4
+        },
+        {
+          "language": "text",
+          "sha256": "724b1a7c7558537049ebeb8da6ad92561eded1bafd89e06db8caed4ca2784374",
+          "lines": 5
+        },
+        {
+          "language": "text",
+          "sha256": "78179704c8ce96f2889dc3497cd04387f1e26504cfd6d78e682fe6e25e1bf657",
+          "lines": 50
+        },
+        {
+          "language": "text",
+          "sha256": "006e4e26b0282454f87f56b60afedf3723d73b426891f877e0435dad054229de",
+          "lines": 2
+        },
+        {
+          "language": "text",
+          "sha256": "6e09cdf21650072b5cec8cdcc47116b535ab33026462373ac6695b575510886c",
+          "lines": 18
+        }
+      ],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 6,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "17-chip-backend.Rmd",
+      "target": "chapters/17-chip-backend.tex",
+      "source_sha256": "1ee95f7a15f606a539edabe2445e69625cb4fb131540954e9295814feb66f463",
+      "headings": 13,
+      "source_code_blocks": [],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 2,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "18-test-and-show.Rmd",
+      "target": "chapters/18-test-and-show.tex",
+      "source_sha256": "a119f3da3e23ed0775c0eb8eb3821b630147dabd1f8836dfcf3958feda8deff9",
+      "headings": 7,
+      "source_code_blocks": [],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 1,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "19-conclusion.Rmd",
+      "target": "chapters/19-conclusion.tex",
+      "source_sha256": "d08153341bd2940cf36c852ea35ca0243fffaba08885934f52664b1b376e8983",
+      "headings": 1,
+      "source_code_blocks": [],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 0,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "30-references.Rmd",
+      "target": "chapters/30-references.tex",
+      "source_sha256": "e6c118c7eaa37f70f6eb2796377bdc013b1e8d51fc4981b6210a59ae1878e334",
+      "headings": 1,
+      "source_code_blocks": [],
+      "tables": 0,
+      "table_breaks_repaired": 0,
+      "figures": 0,
+      "inline_urls_repaired": []
+    },
+    {
+      "source": "40-resources.Rmd",
+      "target": "chapters/40-resources.tex",
+      "source_sha256": "93064dea93a812830da5d1f1d111b5edc0086a12630ab1c68a329a8f873f31fc",
+      "headings": 1,
+      "source_code_blocks": [],
+      "tables": 1,
+      "table_breaks_repaired": 0,
+      "figures": 0,
+      "inline_urls_repaired": []
+    }
+  ],
+  "edits": [
+    {
+      "file": "01-overview",
+      "reason": "修复图引用语法",
+      "old": "@\\ref(chip-flow1)",
+      "new": "\\ref{fig:chip-flow1}"
+    },
+    {
+      "file": "01-overview",
+      "reason": "补齐句尾缺字",
+      "old": "确保系统中各部分的协调工",
+      "new": "确保系统中各部分的协调工作。"
+    },
+    {
+      "file": "01-overview",
+      "reason": "删除重复用词",
+      "old": "一般需要需要达成",
+      "new": "一般需要达成"
+    },
+    {
+      "file": "01-overview",
+      "reason": "删除重复用词",
+      "old": "该架构架构以其",
+      "new": "该架构以其"
+    },
+    {
+      "file": "08-bus-and-soc",
+      "reason": "修正明显同音误字",
+      "old": "该图中展示的时序知识所有合法时序中的一种",
+      "new": "该图中展示的时序只是所有合法时序中的一种"
+    },
+    {
+      "file": "12-fpga-verification",
+      "reason": "补齐缺失谓语",
+      "old": "龙芯教育了一个标准的16550 UART控制器",
+      "new": "龙芯教育提供了一个标准的16550 UART控制器"
+    },
+    {
+      "file": "13-operating-system",
+      "reason": "修复图引用语法",
+      "old": "@ref\\{fig:am-arch\\}",
+      "new": "\\ref{fig:am-arch}"
+    },
+    {
+      "file": "14-software",
+      "reason": "将 Shell 命令从错误的数学模式恢复为代码，恢复缺失中文",
+      "old": "make -j\\((nproc) 这会调用交叉编译器，为目标设备生成 BusyBox 二进制文件。-j\\)(nproc) 参数会使用你电脑的所有处理器核心来加速编译。",
+      "new": "\\begin{CodeBlock}\nmake -j$(nproc)\n\\end{CodeBlock}\n\n这会调用交叉编译器，为目标设备生成 BusyBox 二进制文件。\\texttt{-j\\$(nproc)} 参数会使用你电脑的所有处理器核心来加速编译。"
+    },
+    {
+      "file": "16-chip-frontend",
+      "reason": "修复图引用语法",
+      "old": "@\\ref（fig:setup-hold）",
+      "new": "\\ref{fig:setup-hold}"
+    },
+    {
+      "file": "16-chip-frontend",
+      "reason": "修复图引用语法",
+      "old": "@\\ref(fig:DFT扫描链)",
+      "new": "\\ref{fig:dft-scan-chain}"
+    },
+    {
+      "file": "16-chip-frontend",
+      "reason": "修复图引用语法",
+      "old": "@\\ref(fig:MBIST)",
+      "new": "\\ref{fig:MBIST}"
+    },
+    {
+      "file": "16-chip-frontend",
+      "reason": "修正与前图重复的图标题",
+      "old": "\\caption{DC处理对象划分}\\label{fig:dc-flow}",
+      "new": "\\caption{DC综合过程示意图}\\label{fig:dc-flow}"
+    },
+    {
+      "file": "04-toolchain",
+      "reason": "将未被识别的 Markdown 列表改为原生 LaTeX 列表",
+      "old": "- \\textbf{整数分支跳转指令}：用于控制程序流的跳转和分支。\n- \\textbf{整数计算指令}：用于进行各种整数运算。\n- \\textbf{整数访存指令}：用于内存的读取和写入。\n- \\textbf{特权指令集}：包括操作系统和硬件特权操作的指令。\n- \\textbf{浮点指令集}：虽然本节不展开详细介绍，但浮点指令集包括用于浮点运算的指令。",
+      "new": "\n\\begin{itemize}\n\\item \\textbf{整数分支跳转指令}：用于控制程序流的跳转和分支。\n\\item \\textbf{整数计算指令}：用于进行各种整数运算。\n\\item \\textbf{整数访存指令}：用于内存的读取和写入。\n\\item \\textbf{特权指令集}：包括操作系统和硬件特权操作的指令。\n\\item \\textbf{浮点指令集}：虽然本节不展开详细介绍，但浮点指令集包括用于浮点运算的指令。\n\\end{itemize}\n"
+    },
+    {
+      "file": "07-exceptions",
+      "reason": "将未被识别的 Markdown 列表改为原生 LaTeX 列表",
+      "old": "1. 1个核间中断（\\texttt{IPI}），\n2. 1个定时器中断（\\texttt{TI}），\n3. 1个性能监测计数溢出中断（\\texttt{PMI}），\n4. 8个外部硬中断（\\texttt{HWI0\\textasciitilde{}HWI7}），\n5. 2个软中断（\\texttt{SWI0\\textasciitilde{}SWI1}）。",
+      "new": "\n\\begin{enumerate}\n\\item 1个核间中断（\\texttt{IPI}），\n\\item 1个定时器中断（\\texttt{TI}），\n\\item 1个性能监测计数溢出中断（\\texttt{PMI}），\n\\item 8个外部硬中断（\\texttt{HWI0\\textasciitilde{}HWI7}），\n\\item 2个软中断（\\texttt{SWI0\\textasciitilde{}SWI1}）。\n\\end{enumerate}\n"
+    },
+    {
+      "file": "07-exceptions",
+      "reason": "将未被识别的 Markdown 列表改为原生 LaTeX 列表",
+      "old": "1. 软件随时维护一个中断优先级（\\texttt{IPL}），每个中断源都被赋予特定的优先级。\n2. 在正常状态下，CPU运行在最低优先级，此时任何中断都可以触发。\n3. 当CPU处于最高中断优先级时，任何中断都被禁止。\n4. 当更高优先级的中断发生时，可以抢占低优先级的中断处理过程。",
+      "new": "\n\\begin{enumerate}\n\\item 软件随时维护一个中断优先级（\\texttt{IPL}），每个中断源都被赋予特定的优先级。\n\\item 在正常状态下，CPU运行在最低优先级，此时任何中断都可以触发。\n\\item 当CPU处于最高中断优先级时，任何中断都被禁止。\n\\item 当更高优先级的中断发生时，可以抢占低优先级的中断处理过程。\n\\end{enumerate}\n"
+    },
+    {
+      "file": "09-cache",
+      "reason": "将未被识别的 Markdown 列表改为原生 LaTeX 列表",
+      "old": "- 两张256项×20比特的Tag表\n- 两张256项×1比特的V表\n- 两张256项×1比特的D表\n- 两张256项×128比特的Data表",
+      "new": "\n\\begin{itemize}\n\\item 两张256项×20比特的Tag表\n\\item 两张256项×1比特的V表\n\\item 两张256项×1比特的D表\n\\item 两张256项×128比特的Data表\n\\end{itemize}\n"
+    },
+    {
+      "file": "09-cache",
+      "reason": "将未被识别的 Markdown 列表改为原生 LaTeX 列表",
+      "old": "1. \\textbf{功能边界划分}：\n- CPU流水线发送请求至Cache模块。\n- Cache模块返回数据或写成功响应至CPU流水线。",
+      "new": "\n\\begin{enumerate}\n\\item \\textbf{功能边界划分}：\n\\begin{itemize}\n\\item CPU流水线发送请求至Cache模块。\n\\item Cache模块返回数据或写成功响应至CPU流水线。\n\\end{itemize}\n\\end{enumerate}\n"
+    },
+    {
+      "file": "09-cache",
+      "reason": "将未被识别的 Markdown 列表改为原生 LaTeX 列表",
+      "old": "- 缺失次数：缓存的访问次数在给定程序中是固定的。通过指令跟踪（itrace）输入缓存，模拟缓存的工作过程，统计缺失次数，无需完整仿真整个系统。\n- 生成PC序列：指令跟踪已经包含完整的指令流，只需要指令流的PC值，而不需要指令本身。因此，通过PC序列可以模拟缓存的缺失统计。\n- 元数据维护：缓存的缺失次数与访存内容无关，只需维护元数据即可统计出正确的缺失次数。",
+      "new": "\n\\begin{itemize}\n\\item 缺失次数：缓存的访问次数在给定程序中是固定的。通过指令跟踪（itrace）输入缓存，模拟缓存的工作过程，统计缺失次数，无需完整仿真整个系统。\n\\item 生成PC序列：指令跟踪已经包含完整的指令流，只需要指令流的PC值，而不需要指令本身。因此，通过PC序列可以模拟缓存的缺失统计。\n\\item 元数据维护：缓存的缺失次数与访存内容无关，只需维护元数据即可统计出正确的缺失次数。\n\\end{itemize}\n"
+    },
+    {
+      "file": "14-software",
+      "reason": "将未被识别的 Markdown 列表改为原生 LaTeX 列表",
+      "old": "1. \\textbf{启动系统服务}：\\texttt{init} 负责在系统启动过程中加载和启动各种系统服务和守护进程（例如网络服务、日志服务等）。它通过读取特定的初始化脚本来确定哪些服务需要启动。\n2. \\textbf{设定运行级别}：\\texttt{init} 根据配置文件（如 \\texttt{/etc/inittab} 或 \\texttt{systemd} 下的配置）决定系统启动后应该处于什么运行级别（runlevel），比如单用户模式、多用户模式或图形化模式等。传统的运行级别包括：\n- \\texttt{0}：关机\n- \\texttt{1}：单用户模式\n- \\texttt{2-5}：多用户模式（不同的服务集）\n- \\texttt{6}：重启\n3. \\textbf{管理进程生命周期}：\\texttt{init} 负责监控系统中的其他进程。当某个进程终止时，它会清理资源并进行相关的管理工作。特别是，孤立的子进程会被 \\texttt{init} 接管。\n4. \\textbf{系统关闭和重启}：在系统关机或重启时，\\texttt{init} 会依次停止所有运行中的服务，确保系统能安全地退出。",
+      "new": "\n\\begin{enumerate}\n\\item \\textbf{启动系统服务}：\\texttt{init} 负责在系统启动过程中加载和启动各种系统服务和守护进程（例如网络服务、日志服务等）。它通过读取特定的初始化脚本来确定哪些服务需要启动。\n\\item \\textbf{设定运行级别}：\\texttt{init} 根据配置文件（如 \\texttt{/etc/inittab} 或 \\texttt{systemd} 下的配置）决定系统启动后应该处于什么运行级别（runlevel），比如单用户模式、多用户模式或图形化模式等。传统的运行级别包括：\n\\begin{itemize}\n\\item \\texttt{0}：关机\n\\item \\texttt{1}：单用户模式\n\\item \\texttt{2-5}：多用户模式（不同的服务集）\n\\item \\texttt{6}：重启\n\\end{itemize}\n\\item \\textbf{管理进程生命周期}：\\texttt{init} 负责监控系统中的其他进程。当某个进程终止时，它会清理资源并进行相关的管理工作。特别是，孤立的子进程会被 \\texttt{init} 接管。\n\\item \\textbf{系统关闭和重启}：在系统关机或重启时，\\texttt{init} 会依次停止所有运行中的服务，确保系统能安全地退出。\n\\end{enumerate}\n"
+    },
+    {
+      "file": "14-software",
+      "reason": "将漏标记的 make install 命令放入代码环境",
+      "old": "make install\n安装过程",
+      "new": "\\begin{CodeBlock}\nmake install\n\\end{CodeBlock}\n\n安装过程"
+    },
+    {
+      "file": "17-chip-backend",
+      "reason": "将未被识别的 Markdown 列表改为原生 LaTeX 列表",
+      "old": "- 确定芯片面积：一般芯片的面积越小，平均到每个芯片上的成本越小；但芯片的面积也不可太小，则会造成拥塞程度高，难以布线，导致长周期的设计迭代。一个合理的面积设定是在保证布线的同时尽量节约产品成本，所以布局的最初目标是估计芯片面积的大小。\n- 确保时序收敛：通过优化关键路径、控制信号线长度和时钟树综合，确保信号在规定的时钟周期内传输完成，满足时序要求。\n- 保证芯片的稳定：通过合理的电源和地线规划、热管理和功耗控制，确保芯片在长期运行中保持稳定，防止过热、IR Drop和信号干扰等问题。\n- 满足布线的要求：预留足够的布线资源和空间，采用层次化布线策略，确保布线通畅、信号完整性得到保障，并满足制造工艺的可行性要求。",
+      "new": "\n\\begin{itemize}\n\\item 确定芯片面积：一般芯片的面积越小，平均到每个芯片上的成本越小；但芯片的面积也不可太小，则会造成拥塞程度高，难以布线，导致长周期的设计迭代。一个合理的面积设定是在保证布线的同时尽量节约产品成本，所以布局的最初目标是估计芯片面积的大小。\n\\item 确保时序收敛：通过优化关键路径、控制信号线长度和时钟树综合，确保信号在规定的时钟周期内传输完成，满足时序要求。\n\\item 保证芯片的稳定：通过合理的电源和地线规划、热管理和功耗控制，确保芯片在长期运行中保持稳定，防止过热、IR Drop和信号干扰等问题。\n\\item 满足布线的要求：预留足够的布线资源和空间，采用层次化布线策略，确保布线通畅、信号完整性得到保障，并满足制造工艺的可行性要求。\n\\end{itemize}\n"
+    }
+  ],
+  "label_map": {
+    "ux524dux8a00": "chap:00-preface",
+    "cpuux82afux7247ux8bbeux8ba1ux6982ux8ff0": "chap:01-overview",
+    "ux57faux672cux539fux7406ux4e0eux7ed3ux6784ux7b80ux4ecb": "sec:01-overview-001",
+    "ux7ecfux5178ux8ba1ux7b97ux673aux7cfbux7edf": "sec:01-overview-002",
+    "ux73b0ux4ee3ux5904ux7406ux5668-soc-ux7cfbux7edf": "sec:01-overview-003",
+    "cpuux82afux7247ux8bbeux8ba1": "sec:01-overview-004",
+    "ux82afux7247ux5b9eux73b0ux6d41ux7a0bux7b80ux4ecb": "sec:01-overview-005",
+    "ux82afux7247ux89c4ux683cux5b9aux4e49ux4e0eux8bbeux8ba1ux4effux771fux5b9eux73b0": "sec:01-overview-006",
+    "ux82afux7247ux8bbeux8ba1ux903bux8f91ux7efcux5408ux4e0eux8bc4ux4f30ux9a8cux8bc1": "sec:01-overview-007",
+    "ux82afux7247ux540eux7aefux7269ux7406ux5b9eux73b0ux4e0eux9a8cux8bc1": "sec:01-overview-008",
+    "ux82afux7247ux6d41ux7247ux5c01ux88c5ux4e0eux56deux7247ux6d4bux8bd5": "sec:01-overview-009",
+    "ux8bbeux8ba1ux73afux5883ux4ecbux7ecd": "chap:02-design-environment",
+    "ux786cux4ef6ux8bbeux8ba1ux4e0eux9a8cux8bc1ux73afux5883": "sec:02-design-environment-001",
+    "fpgaux539fux7406ux4ecbux7ecd": "sec:02-design-environment-002",
+    "fpgaux5382ux5546ux7b80ux4ecb": "sec:02-design-environment-003",
+    "ux786cux4ef6ux8bbeux8ba1ux73afux5883ux6574ux4f53ux60c5ux51b5": "sec:02-design-environment-004",
+    "ux9f99ux82afcpuux8bbeux8ba1ux4e0eux4f53ux7cfbux7ed3ux6784ux6559ux5b66ux5b9eux9a8cux7cfbux7edf": "sec:02-design-environment-005",
+    "ux8f6fux4ef6ux8c03ux8bd5ux73afux5883": "sec:02-design-environment-006",
+    "rtlux4effux771fux9a8cux8bc1ux4ecbux7ecd": "sec:02-design-environment-007",
+    "vivadoux8f6fux4ef6ux7b80ux4ecb": "sec:02-design-environment-008",
+    "ux5b9eux9a8cux865aux62dfux673a": "sec:02-design-environment-009",
+    "ux5b9eux9a8cux865aux62dfux673aux4ecbux7ecd": "sec:02-design-environment-010",
+    "ux5b9eux9a8cux865aux62dfux673aux83b7ux53d6": "sec:02-design-environment-011",
+    "ux5b9eux9a8cux865aux62dfux673aux5b89ux88c5": "sec:02-design-environment-012",
+    "ux5b9eux9a8cux4ee3ux7801ux4ed3ux5e93ux83b7ux53d6": "sec:02-design-environment-013",
+    "ux6570ux5b57ux903bux8f91ux8bbeux8ba1ux57faux7840": "chap:03-digital-logic",
+    "ux8bbeux8ba1ux4e0eux5f00ux53d1ux57faux672cux6d41ux7a0b": "sec:03-digital-logic-001",
+    "ux6570ux5b57ux7535ux8defux7684ux57faux672cux7ec4ux6210": "sec:03-digital-logic-002",
+    "ux7ec4ux5408ux903bux8f91ux7535ux8def": "sec:03-digital-logic-003",
+    "ux65f6ux5e8fux903bux8f91ux7535ux8def": "sec:03-digital-logic-004",
+    "ux6570ux5b57ux7535ux8defux8bbeux8ba1ux7684ux57faux672cux6d41ux7a0b": "sec:03-digital-logic-005",
+    "ux7535ux8defux8bbeux8ba1": "sec:03-digital-logic-006",
+    "ux4ee3ux7801ux7f16ux5199": "sec:03-digital-logic-007",
+    "ux529fux80fdux4effux771f": "sec:03-digital-logic-008",
+    "ux7efcux5408ux5b9eux73b0": "sec:03-digital-logic-009",
+    "ux4e0aux677fux8c03ux8bd5": "sec:03-digital-logic-010",
+    "ux8bbeux8ba1ux4e0eux8c03ux8bd5ux65b9ux6cd5": "sec:03-digital-logic-011",
+    "ux786cux4ef6ux57faux7840ux77e5ux8bc6": "sec:03-digital-logic-012",
+    "ux903bux8f91ux95e8": "sec:03-digital-logic-013",
+    "ux89e6ux53d1ux5668": "sec:03-digital-logic-014",
+    "ux5bc4ux5b58ux5668": "sec:03-digital-logic-015",
+    "ux7ec4ux5408ux903bux8f91ux7535ux8defux8bbeux8ba1": "sec:03-digital-logic-016",
+    "ux65f6ux5e8fux903bux8f91ux7535ux8defux8bbeux8ba1": "sec:03-digital-logic-017",
+    "ux786cux4ef6ux63cfux8ff0ux8bedux8a00ux7f16ux7a0b": "sec:03-digital-logic-018",
+    "ux786cux4ef6ux63cfux8ff0ux8bedux8a00ux7b80ux4ecb": "sec:03-digital-logic-019",
+    "verilog-hdlux7684ux57faux672cux8bedux6cd5": "sec:03-digital-logic-020",
+    "verilog-hdlux4e2dux7684ux6570ux636eux7c7bux578bux4e0eux64cdux4f5c": "sec:03-digital-logic-021",
+    "ux884cux4e3aux7ea7ux63cfux8ff0ux4e0eux7ed3ux6784ux7ea7ux63cfux8ff0": "sec:03-digital-logic-022",
+    "verilog-hdlux7f16ux7a0bux7684ux8c03ux8bd5ux6280ux5de7": "sec:03-digital-logic-023",
+    "ux529fux80fdux4effux771f-1": "sec:03-digital-logic-024",
+    "ux4effux771fux73afux5883ux7684ux642dux5efa": "sec:03-digital-logic-025",
+    "ux4effux771fux6d4bux8bd5ux7b56ux7565": "sec:03-digital-logic-026",
+    "ux6574ux4f53ux5b9eux73b0": "sec:03-digital-logic-027",
+    "cpuux8bbeux8ba1ux6982ux8ff0": "sec:03-digital-logic-028",
+    "ux7efcux5408synthesis": "sec:03-digital-logic-029",
+    "ux5b9eux73b0implementation": "sec:03-digital-logic-030",
+    "ux4e0aux677fux6d4bux8bd5ux4e0eux8c03ux8bd5": "sec:03-digital-logic-031",
+    "ux9879ux76eeux4ea4ux4ed8": "sec:03-digital-logic-032",
+    "ux76f8ux5173ux5de5ux5177ux4e0eux5e73ux53f0ux4ecbux7ecd": "sec:03-digital-logic-033",
+    "ux6570ux5b57ux7535ux8defux8bbeux8ba1ux8badux7ec3": "chap:04-toolchain",
+    "loongarchux6307ux4ee4ux96c632ux4f4dux7cbeux7b80ux7248la32rux4ecbux7ecd": "sec:04-toolchain-001",
+    "ux6307ux4ee4ux96c6ux4ecbux7ecd": "sec:04-toolchain-002",
+    "ux6307ux4ee4ux7f16ux7801ux683cux5f0f": "sec:04-toolchain-003",
+    "ux6307ux4ee4ux5206ux7c7b": "sec:04-toolchain-004",
+    "ux6307ux4ee4ux52a9ux8bb0ux7b26": "sec:04-toolchain-005",
+    "la32rux6307ux4ee4ux96c6ux4e0emipsux6307ux4ee4ux96c6ux5bf9ux6bd4": "sec:04-toolchain-006",
+    "ux7f16ux7801ux683cux5f0fux5bf9ux6bd4": "sec:04-toolchain-007",
+    "ux6574ux6570ux6307ux4ee4ux5bf9ux6bd4": "sec:04-toolchain-008",
+    "ux7279ux6743ux6307ux4ee4ux5bf9ux6bd4": "sec:04-toolchain-009",
+    "la32rux5904ux7406ux5668ux5f00ux53d1ux5de5ux5177ux6d41ux7a0b": "sec:04-toolchain-010",
+    "chiplab-ux9a8cux8bc1ux73afux5883ux4ecbux7ecd": "sec:04-toolchain-011",
+    "eula-env-ux9a8cux8bc1ux73afux5883ux4ecbux7ecd": "sec:04-toolchain-012",
+    "la32r-qemu": "sec:04-toolchain-013",
+    "ux6574ux4f53ux6d41ux7a0bux4ecbux7ecd": "sec:04-toolchain-014",
+    "la32rux7cfbux7edfux652fux6301ux4e0eux8c03ux8bd5ux65b9ux6cd5": "sec:04-toolchain-015",
+    "uboot-ux4ecbux7ecd": "sec:04-toolchain-016",
+    "linux-ux4ecbux7ecd": "sec:04-toolchain-017",
+    "linux-ux79fbux690d": "sec:04-toolchain-018",
+    "ux7b80ux5355-la32r-cpuux8bbeux8ba1": "chap:05-simple-cpu",
+    "ux5355ux5468ux671fcpuux8bbeux8ba1": "sec:05-simple-cpu-001",
+    "ux6982ux5ff5ux4ecbux7ecd": "sec:05-simple-cpu-002",
+    "ux6307ux4ee4ux4ecbux7ecd": "sec:05-simple-cpu-003",
+    "ux6570ux636eux901aux8def": "sec:05-simple-cpu-004",
+    "ux6a21ux5757ux8bbeux8ba1": "sec:05-simple-cpu-005",
+    "ux6307ux4ee4ux5b9eux73b0": "sec:05-simple-cpu-006",
+    "ux6d41ux6c34ux7ebfcpuux8bbeux8ba1": "sec:05-simple-cpu-007",
+    "ux6982ux5ff5ux4ecbux7ecd-1": "sec:05-simple-cpu-008",
+    "ux6307ux4ee4ux4ecbux7ecd-1": "sec:05-simple-cpu-009",
+    "ux6570ux636eux901aux8def-1": "sec:05-simple-cpu-010",
+    "ux63a7ux5236ux4fe1ux53f7ux7684ux8bbeux8ba1": "sec:05-simple-cpu-011",
+    "ux5c06cpuux6838ux96c6ux6210ux5230socux73afux5883ux4e2d": "sec:05-simple-cpu-012",
+    "socux73afux5883ux4e0bux7684cpuux529fux80fdux4effux771fux4e0eux8c03ux8bd5": "sec:05-simple-cpu-013",
+    "ux5904ux7406ux6d41ux6c34ux7ebfux51b2ux7a81": "sec:05-simple-cpu-014",
+    "ux51b2ux7a81ux7c7bux578bux4ecbux7ecd": "sec:05-simple-cpu-015",
+    "ux901aux8fc7ux963bux585eux6280ux672fux89e3ux51b3ux51b2ux7a81": "sec:05-simple-cpu-016",
+    "ux901aux8fc7ux524dux9012ux6280ux672fux89e3ux51b3ux51b2ux7a81": "sec:05-simple-cpu-017",
+    "ux652fux6301ux66f4ux591aux6307ux4ee4ux8bbeux8ba1": "chap:06-more-instructions",
+    "ux5728ux6d41ux6c34ux7ebfux4e2dux6dfbux52a0ux7b80ux5355ux8fd0ux7b97ux7c7bux6307ux4ee4": "sec:06-more-instructions-001",
+    "ux7b97ux672fux8fd0ux7b97ux7c7bux6307ux4ee4": "sec:06-more-instructions-002",
+    "ux6bd4ux8f83ux8fd0ux7b97ux7c7bux6307ux4ee4": "sec:06-more-instructions-003",
+    "ux903bux8f91ux8fd0ux7b97ux7c7bux6307ux4ee4": "sec:06-more-instructions-004",
+    "ux79fbux4f4dux8fd0ux7b97ux7c7bux6307ux4ee4": "sec:06-more-instructions-005",
+    "ux5728ux6d41ux6c34ux7ebfux4e2dux6dfbux52a0ux4e58ux9664ux7c7bux6307ux4ee4": "sec:06-more-instructions-006",
+    "ux5728ux6d41ux6c34ux7ebfux4e2dux6dfbux52a0ux8f6cux79fbux548cux8bbfux5b58ux6307ux4ee4": "sec:06-more-instructions-007",
+    "ux8f6cux79fbux6307ux4ee4": "sec:06-more-instructions-008",
+    "ux8bbfux5b58ux6307ux4ee4": "sec:06-more-instructions-009",
+    "ux652fux6301ux5f02ux5e38ux548cux4e2dux65ad": "chap:07-exceptions",
+    "ux4e2dux65adux548cux5f02ux5e38ux673aux5236ux548cux57faux672cux6982ux5ff5": "sec:07-exceptions-001",
+    "cpuux7684ux4e2dux65adux673aux5236": "sec:07-exceptions-002",
+    "cpuux7684ux5f02ux5e38ux673aux5236": "sec:07-exceptions-003",
+    "ux57faux672cux6982ux5ff5": "sec:07-exceptions-004",
+    "ux5f02ux5e38ux548cux4e2dux65adux7684ux5206ux7c7b": "sec:07-exceptions-005",
+    "ux516dux7c7bux5f02ux5e38": "sec:07-exceptions-006",
+    "ux4e24ux7c7bux4e2dux65ad": "sec:07-exceptions-007",
+    "ux5f02ux5e38ux548cux4e2dux65adux5904ux7406ux6d41ux7a0b": "sec:07-exceptions-008",
+    "ux5f02ux5e38ux5904ux7406ux6d41ux7a0b": "sec:07-exceptions-009",
+    "ux4e2dux65adux7684ux54cdux5e94": "sec:07-exceptions-010",
+    "ux4f18ux5148ux7ea7": "sec:07-exceptions-011",
+    "ux5f02ux5e38ux4e0eux4e2dux65adux7684ux4f18ux5148ux7ea7": "sec:07-exceptions-012",
+    "ux7cbeux786eux5f02ux5e38": "sec:07-exceptions-013",
+    "ux4e2dux65adux7684ux5f02ux6b65ux54cdux5e94": "sec:07-exceptions-014",
+    "ux4e2dux65adux548cux5f02ux5e38ux7684ux5d4cux5957ux5904ux7406": "sec:07-exceptions-015",
+    "ux5728cpuux4e2dux589eux52a0ux5f02ux5e38ux4e0eux4e2dux65adux529fux80fdux7684ux8bbeux8ba1ux8981ux70b9": "sec:07-exceptions-016",
+    "ux7cbeux786eux5f02ux5e38ux4e0eux4e2dux65adux7684ux5b9eux73b0": "sec:07-exceptions-017",
+    "ux6dfbux52a0ux5f02ux5e38ux4e2dux65adux7684ux652fux6301": "sec:07-exceptions-018",
+    "ux603bux7ebfux63a5ux53e3ux4e0esocux96c6ux6210ux8bbeux8ba1": "chap:08-bus-and-soc",
+    "ux8ba1ux7b97ux673aux603bux7ebfux63a5ux53e3": "sec:08-bus-and-soc-001",
+    "ux7c7bsramux603bux7ebf": "sec:08-bus-and-soc-002",
+    "ux4e3bux65b9ux548cux4eceux65b9": "sec:08-bus-and-soc-003",
+    "ux63a5ux53e3ux4fe1ux53f7": "sec:08-bus-and-soc-004",
+    "ux8bfbux5199ux65f6ux5e8f": "sec:08-bus-and-soc-005",
+    "ux8bfbux64cdux4f5c": "sec:08-bus-and-soc-006",
+    "ux5199ux64cdux4f5c": "sec:08-bus-and-soc-007",
+    "ux7c7bsramux603bux7ebfux7684ux8bbeux8ba1": "sec:08-bus-and-soc-008",
+    "axiux603bux7ebfux534fux8bae": "sec:08-bus-and-soc-009",
+    "ux63a5ux53e3ux4fe1ux53f7-1": "sec:08-bus-and-soc-010",
+    "ux8bfbux5730ux5740ux901aux9053-ar": "sec:08-bus-and-soc-011",
+    "ux8bfbux6570ux636eux901aux9053-r": "sec:08-bus-and-soc-012",
+    "ux5199ux5730ux5740ux901aux9053-aw": "sec:08-bus-and-soc-013",
+    "ux5199ux6570ux636eux901aux9053-w": "sec:08-bus-and-soc-014",
+    "ux5199ux54cdux5e94ux901aux9053-b": "sec:08-bus-and-soc-015",
+    "ux63e1ux624bux673aux5236": "sec:08-bus-and-soc-016",
+    "ux603bux7ebfux4e8bux52a1": "sec:08-bus-and-soc-017",
+    "ux8bfbux4e8bux52a1": "sec:08-bus-and-soc-018",
+    "ux5199ux4e8bux52a1": "sec:08-bus-and-soc-019",
+    "ux7a81ux53d1ux4f20ux8f93ux6a21ux5f0f": "sec:08-bus-and-soc-020",
+    "ux7a81ux53d1ux4f20ux8f93ux7c7bux578b": "sec:08-bus-and-soc-021",
+    "ux7a81ux53d1ux4f20ux8f93ux7684ux65f6ux5e8f": "sec:08-bus-and-soc-022",
+    "ux7a81ux53d1ux4f20ux8f93ux7684ux5e94ux7528ux548cux5b9eux73b0": "sec:08-bus-and-soc-023",
+    "ux5176ux4ed6ux603bux7ebfux7279ux6027": "sec:08-bus-and-soc-024",
+    "ux7c7bsramux603bux7ebfux4e0eaxiux603bux7ebfux6865ux63a5ux8bbeux8ba1": "sec:08-bus-and-soc-025",
+    "ux7c7bsramux603bux7ebfux63a5ux53e3ux4fe1ux53f7ux548caxiux603bux7ebfux63a5ux53e3ux4fe1ux53f7ux7684ux5173ux7cfb": "sec:08-bus-and-soc-026",
+    "ux8f6cux63a5ux6865ux7684ux9876ux5c42ux63a5ux53e3": "sec:08-bus-and-soc-027",
+    "ux8f6cux63a5ux6865ux7684ux8bbeux8ba1": "sec:08-bus-and-soc-028",
+    "socux96c6ux6210ux89c4ux8303": "sec:08-bus-and-soc-029",
+    "cacheux8bbeux8ba1": "chap:09-cache",
+    "cacheux57faux672cux7ed3ux6784ux4e0eux539fux7406": "sec:09-cache-001",
+    "cacheux7684ux8bbeux8ba1ux89c4ux683c": "sec:09-cache-002",
+    "cacheux7ed3ux6784": "sec:09-cache-003",
+    "ux8bbeux8ba1ux521dux8877": "sec:09-cache-004",
+    "cacheux5bb9ux91cfux8ba1ux7b97": "sec:09-cache-005",
+    "ux5730ux5740ux4f4dux6570ux8ba1ux7b97": "sec:09-cache-006",
+    "ux5730ux5740ux8bbfux95ee": "sec:09-cache-007",
+    "cacheux6a21ux5757ux7684ux6570ux636eux901aux8defux8bbeux8ba1": "sec:09-cache-008",
+    "cacheux7684ux6267ux884cux8fc7ux7a0b": "sec:09-cache-009",
+    "cacheux8868ux7684ux7ec4ux7ec7ux7ba1ux7406": "sec:09-cache-010",
+    "cacheux6a21ux5757ux529fux80fdux8fb9ux754cux5212ux5206": "sec:09-cache-011",
+    "cacheux4e0ecpuux7684ux4ea4ux4e92": "sec:09-cache-012",
+    "cacheux4e0eaxiux603bux7ebfux7684ux4ea4ux4e92": "sec:09-cache-013",
+    "cacheux6a21ux5757ux5185ux9664cacheux8868ux4e4bux5916ux7684ux6570ux636eux901aux8def": "sec:09-cache-014",
+    "cacheux6a21ux5757ux5185ux90e8ux7684ux63a7ux5236ux903bux8f91ux8bbeux8ba1": "sec:09-cache-015",
+    "cacheux6a21ux5757ux81eaux8eabux7684ux72b6ux6001ux673aux8bbeux8ba1": "sec:09-cache-016",
+    "ux8868ux7684ux7247ux9009ux548cux5199ux4f7fux80fd": "sec:09-cache-017",
+    "ux6a21ux5757ux63a5ux53e3ux8f93ux51faux7684ux63a7ux5236ux76f8ux5173ux4fe1ux53f7": "sec:09-cache-018",
+    "cacheux7684ux786cux4ef6ux521dux59cbux5316ux95eeux9898": "sec:09-cache-019",
+    "cacheux6027ux80fdux5206ux6790ux4e0eux4f18ux5316": "sec:09-cache-020",
+    "cacheux96c6ux6210ux5230cpuux4e2d": "sec:09-cache-021",
+    "ux652fux6301cacheux5904ux7406ux5668ux7684ux6027ux80fdux8c03ux4f18": "sec:09-cache-022",
+    "ux6027ux80fdux8bc4ux4f30": "sec:09-cache-023",
+    "ux57faux51c6ux6d4bux8bd5ux7a0bux5e8f": "sec:09-cache-024",
+    "ux6027ux80fdux74f6ux9888": "sec:09-cache-025",
+    "ux7f13ux5b58ux4f18ux5316": "sec:09-cache-026",
+    "ux7f13ux5b58ux6280ux672fux4e0eux6027ux80fdux8bc4ux4ef7": "sec:09-cache-027",
+    "ux63d0ux5347ux547dux4e2dux7387": "sec:09-cache-028",
+    "ux4f18ux5316ux7f3aux5931ux4ee3ux4ef7": "sec:09-cache-029",
+    "ux8bbeux8ba1ux7a7aux95f4ux63a2ux7d22ux65b9ux6cd5ux603bux7ed3": "sec:09-cache-030",
+    "ux7ecfux5178ux4f53ux7cfbux7ed3ux6784ux7684ux56dbux7c7bux4f18ux5316ux65b9ux6cd5": "sec:09-cache-031",
+    "ux652fux6301tlb-mmuux8bbeux8ba1": "chap:10-mmu",
+    "tlbux539fux7406ux4e0eux7ed3ux6784": "sec:10-mmu-001",
+    "tlbux7684ux865aux5b9eux5730ux5740ux8f6cux6362": "sec:10-mmu-002",
+    "tlbux7684ux8f6fux4ef6ux8bbfux95ee": "sec:10-mmu-003",
+    "tlbux7684ux8f6fux786cux4ef6ux4ea4ux4e92ux673aux5236": "sec:10-mmu-004",
+    "tlbux91cdux586bux5f02ux5e38": "sec:10-mmu-005",
+    "loadfetchux64cdux4f5cux9875ux65e0ux6548ux5f02ux5e38": "sec:10-mmu-006",
+    "ux9875ux4e0dux53efux8bfbux4e0dux53efux5199ux7279ux6743ux4e0dux5408ux89c4ux5f02ux5e38": "sec:10-mmu-007",
+    "tlbux6a21ux5757ux8bbeux8ba1": "sec:10-mmu-008",
+    "tlbux76f8ux5173ux7684ux5bc4ux5b58ux5668ux4e0eux6307ux4ee4": "sec:10-mmu-009",
+    "tlbux76f8ux5173ux7684csrux5bc4ux5b58ux5668": "sec:10-mmu-010",
+    "tlbux76f8ux5173ux7684ux6307ux4ee4": "sec:10-mmu-011",
+    "ux5229ux7528tlbux8fdbux884cux865aux5b9eux5730ux5740ux8f6cux6362": "sec:10-mmu-012",
+    "ux5730ux5740ux7ffbux8bd1": "sec:10-mmu-013",
+    "ux5730ux5740ux7a7aux95f4": "sec:10-mmu-014",
+    "ux5730ux5740ux7ffbux8bd1ux6a21ux5f0f": "sec:10-mmu-015",
+    "tlbux63a5ux53e3ux8bbeux8ba1": "sec:10-mmu-016",
+    "ux5904ux7406ux5668ux6027ux80fdux4f18ux5316": "chap:11-advanced-cpu",
+    "ux5904ux7406ux5668ux8fd0ux884cux9891ux7387ux4f18ux5316": "sec:11-advanced-cpu-001",
+    "ux5b58ux50a8ux90e8ux4ef6ux4f18ux5316": "sec:11-advanced-cpu-002",
+    "ux5e73ux8861ux5404ux7ea7ux6d41ux6c34ux7ebfux7684ux5ef6ux8fdf": "sec:11-advanced-cpu-003",
+    "ux5f39ux6027ux6d41ux6c34ux7ebf": "sec:11-advanced-cpu-004",
+    "ux903bux8f91ux590dux5236": "sec:11-advanced-cpu-005",
+    "ux8d85ux6807ux91cfux6280ux672f": "sec:11-advanced-cpu-006",
+    "ux8d85ux6807ux91cfux8bbeux8ba1ux5f15ux5165ux7684ux51b2ux7a81ux53caux89e3ux51b3": "sec:11-advanced-cpu-007",
+    "ux6570ux636eux51b2ux7a81": "sec:11-advanced-cpu-008",
+    "ux63a7ux5236ux51b2ux7a81": "sec:11-advanced-cpu-009",
+    "ux7ed3ux6784ux51b2ux7a81": "sec:11-advanced-cpu-010",
+    "ux53ccux53d6ux6307ux8bbeux8ba1": "sec:11-advanced-cpu-011",
+    "ux591aux53e3-fifo-ux8bbeux8ba1": "sec:11-advanced-cpu-012",
+    "ux591aux8bfbux7aefux53e3ux7684ux5bc4ux5b58ux5668ux5806ux8bbeux8ba1": "sec:11-advanced-cpu-013",
+    "ux591aux5199ux7aefux53e3ux7684ux5bc4ux5b58ux5668ux5806ux8bbeux8ba1": "sec:11-advanced-cpu-014",
+    "ux591aux8bfbux591aux5199ux7aefux53e3ux5bc4ux5b58ux5668ux5806ux8bbeux8ba1": "sec:11-advanced-cpu-015",
+    "ux589eux52a0-fu-ux6570ux91cfux53caux76f8ux5e94ux6570ux636eux901aux8def": "sec:11-advanced-cpu-016",
+    "ux63a2ux7d22ux5c1dux8bd5ux5206ux652fux9884ux6d4bux6280ux672f": "sec:11-advanced-cpu-017",
+    "ux5206ux652fux6307ux4ee4ux7684ux7c7bux578bux4e0eux53efux9884ux6d4bux6027": "sec:11-advanced-cpu-018",
+    "ux5206ux652fux76eeux6807ux7f13ux51b2": "sec:11-advanced-cpu-019",
+    "ux65b9ux5411ux9884ux6d4bux5668": "sec:11-advanced-cpu-020",
+    "bimodal-ux9884ux6d4bux5668": "sec:11-advanced-cpu-021",
+    "ux4f7fux7528ux5168ux5c40ux6a21ux5f0fux5386ux53f2ux4ee5-gshare-ux9884ux6d4bux5668ux4e3aux4f8b": "sec:11-advanced-cpu-022",
+    "ux63a8ux6d4bux66f4ux65b0ux5168ux5c40ux6a21ux5f0fux5386ux53f2": "sec:11-advanced-cpu-023",
+    "ux8fd4ux56deux5730ux5740ux6808": "sec:11-advanced-cpu-024",
+    "fpgaux4e0aux677fux9a8cux8bc1": "chap:12-fpga-verification",
+    "ux57faux4e8eux767eux82afux8ba1ux5212ux5b9eux9a8cux7bb1ux7684ux57faux672cux529fux80fdux9a8cux8bc1": "sec:12-fpga-verification-001",
+    "ux5b9eux9a8cux7bb1ux4ecbux7ecd": "sec:12-fpga-verification-002",
+    "ux7cfbux7edfux9a8cux8bc1-soc-ux4ecbux7ecd": "sec:12-fpga-verification-003",
+    "ux5185ux6838ux542fux52a8ux7684ux65b9ux6cd5": "sec:12-fpga-verification-004",
+    "ux8bbeux8ba1ux5305ux542bux5404ux7c7bux5916ux8bbeux7684ux6d4bux8bd5ux677f": "sec:12-fpga-verification-005",
+    "dramux63a7ux5236ux5668": "sec:12-fpga-verification-006",
+    "spi-flashux63a7ux5236ux5668": "sec:12-fpga-verification-007",
+    "ux4ee5ux592aux7f51ux63a7ux5236ux5668": "sec:12-fpga-verification-008",
+    "sdux5361ux63a7ux5236ux5668": "sec:12-fpga-verification-009",
+    "i2cux63a7ux5236ux5668": "sec:12-fpga-verification-010",
+    "uartux63a7ux5236ux5668": "sec:12-fpga-verification-011",
+    "usbux63a7ux5236ux5668": "sec:12-fpga-verification-012",
+    "ux5c0fux7ed3": "sec:12-fpga-verification-013",
+    "ux64cdux4f5cux7cfbux7edfux79fbux690d": "chap:13-operating-system",
+    "ux8fd0ux884cux64cdux4f5cux7cfbux7edfux6240ux9700ux8981ux7684ux652fux6301": "sec:13-operating-system-001",
+    "mos-ux79fbux690dux6d41ux7a0b": "sec:13-operating-system-002",
+    "ux4e3aux65b0ux7684ux4f53ux7cfbux7ed3ux6784ux5b9aux4e49ux5934ux6587ux4ef6ux5b9aux4e49": "sec:13-operating-system-003",
+    "ux5b8cux6210ux542fux52a8ux90e8ux5206ux5185ux6838ux521dux59cbux5316ux4ee3ux7801": "sec:13-operating-system-004",
+    "ux4feeux6539ux7f16ux8bd1ux94feux63a5ux811aux672c": "sec:13-operating-system-005",
+    "ux9002ux914dux4e32ux53e3ux9a71ux52a8ux7a0bux5e8fux5141ux8bb8ux5185ux6838ux6253ux5370ux8f93ux51fa": "sec:13-operating-system-006",
+    "ux79fbux690dux5185ux5b58ux7ba1ux7406ux90e8ux5206": "sec:13-operating-system-007",
+    "ux5b9eux73b0ux4e2dux65adux5f02ux5e38ux652fux6301": "sec:13-operating-system-008",
+    "ux7cfbux7edfux8c03ux7528": "sec:13-operating-system-009",
+    "ux79fbux690dux6d4bux8bd5": "sec:13-operating-system-010",
+    "linux-ux79fbux690d-1": "sec:13-operating-system-011",
+    "kconfig-ux914dux7f6e": "sec:13-operating-system-012",
+    "ux8bbeux5907ux6811ux914dux7f6e": "sec:13-operating-system-013",
+    "ux8282ux70b9": "sec:13-operating-system-014",
+    "ux522bux540dux8282ux70b9": "sec:13-operating-system-015",
+    "chosenux8282ux70b9": "sec:13-operating-system-016",
+    "label": "sec:13-operating-system-017",
+    "ux5c5eux6027": "sec:13-operating-system-018",
+    "phandle-ux5c5eux6027": "sec:13-operating-system-019",
+    "address-cells-ux548c-size-cells-ux5c5eux6027": "sec:13-operating-system-020",
+    "reg-ux5c5eux6027": "sec:13-operating-system-021",
+    "amux79fbux690d": "sec:13-operating-system-022",
+    "amux7684ux5c42ux6b21ux7ed3ux6784": "sec:13-operating-system-023",
+    "ux5728amux4e0aux5b9eux73b0ux6781ux7b80ux64cdux4f5cux7cfbux7edf": "sec:13-operating-system-024",
+    "ux5e94ux7528ux8f6fux4ef6ux9002ux914d": "chap:14-software",
+    "linux-ux7cfbux7edf-init-ux8fdbux7a0bux4ecbux7ecd": "sec:14-software-001",
+    "busybox-ux5de5ux5177ux96c6ux4ecbux7ecd": "sec:14-software-002",
+    "ux4ea4ux53c9ux7f16ux8bd1-busybox": "sec:14-software-003",
+    "ux82afux7247ux5b9eux73b0ux51c6ux5907": "chap:15-chip-preparation",
+    "ux5404ux7c7bux578bipux66ffux6362": "sec:15-chip-preparation-001",
+    "ux4ece-fpga-ux5230ux82afux7247": "sec:15-chip-preparation-002",
+    "pllux66ffux6362": "sec:15-chip-preparation-003",
+    "sramux66ffux6362": "sec:15-chip-preparation-004",
+    "sdram-ux63a7ux5236ux5668ux4ecbux7ecd": "sec:15-chip-preparation-005",
+    "edaux5de5ux5177ux73afux5883ux642dux5efa": "sec:15-chip-preparation-006",
+    "edaux5de5ux5177ux6982ux89c8": "sec:15-chip-preparation-007",
+    "ux82afux7247ux524dux7aefux8bbeux8ba1ux53caux4effux771fux5de5ux5177": "sec:15-chip-preparation-008",
+    "ux82afux7247ux524dux7aefux7efcux5408ux4e0eux8bc4ux4f30ux5de5ux5177": "sec:15-chip-preparation-009",
+    "ux82afux7247ux540eux7aefux5b9eux73b0ux4e0eux9a8cux8bc1ux5de5ux5177": "sec:15-chip-preparation-010",
+    "ux4effux771fux6a21ux62dfux4e0eux6027ux80fdux8bc4ux4f30ux73afux5883ux642dux5efa": "sec:15-chip-preparation-011",
+    "ux524dux4effux4e0eux540eux4eff": "sec:15-chip-preparation-012",
+    "ux6d4bux8bd5ux9a8cux8bc1ux73afux5883ux642dux5efa": "sec:15-chip-preparation-013",
+    "ux82afux7247ux524dux7aefux5b9eux73b0": "chap:16-chip-frontend",
+    "ux9700ux6c42ux5206ux6790": "sec:16-chip-frontend-001",
+    "ux4eceux56fdux4ea7ux610fux4e49ux7684ux89d2ux5ea6": "sec:16-chip-frontend-002",
+    "ux4eceux82afux7247ux5b9eux73b0ux7684ux89d2ux5ea6": "sec:16-chip-frontend-003",
+    "ux529fux80fdux5b9aux4f4d": "sec:16-chip-frontend-004",
+    "ux6027ux80fdux9700ux6c42": "sec:16-chip-frontend-005",
+    "ux6280ux672fux9009ux578b": "sec:16-chip-frontend-006",
+    "ux82afux7247ux6280ux672fux89c4ux683cux5236ux5b9aspec": "sec:16-chip-frontend-007",
+    "ux6574ux4f53ux529fux80fdux754cux5b9a": "sec:16-chip-frontend-008",
+    "ux67b6ux6784ux8bbeux8ba1ux4e0eux6574ux4f53ux5efaux6a21": "sec:16-chip-frontend-009",
+    "ux89c4ux683cux7ec6ux5316ux4e0eux6587ux6863ux5316": "sec:16-chip-frontend-010",
+    "ux6a21ux5757ux7ea7rtlux8bbeux8ba1ux5b9eux73b0": "sec:16-chip-frontend-011",
+    "rtlux6a21ux5757ux5316ux8bbeux8ba1ux57faux672cux539fux5219": "sec:16-chip-frontend-012",
+    "rtlux6a21ux5757ux7684ux5212ux5206": "sec:16-chip-frontend-013",
+    "rtlux6a21ux5757ux7684ux8bbeux8ba1ux65b9ux6cd5": "sec:16-chip-frontend-014",
+    "rtlux6a21ux5757ux95f4ux7684ux8fdeux63a5ux4e0eux4ea4ux4e92": "sec:16-chip-frontend-015",
+    "rtlux6a21ux5757ux5316ux8bbeux8ba1ux7684ux9a8cux8bc1ux548cux8c03ux8bd5": "sec:16-chip-frontend-016",
+    "ux529fux80fdux4effux771fux9a8cux8bc1": "sec:16-chip-frontend-017",
+    "ux903bux8f91ux7efcux5408": "sec:16-chip-frontend-018",
+    "ux903bux8f91ux7efcux5408ux6982ux8ff0": "sec:16-chip-frontend-019",
+    "ux903bux8f91ux7efcux5408ux5b9eux65bdux6d41ux7a0b": "sec:16-chip-frontend-020",
+    "ux9759ux6001ux65f6ux5e8fux5206ux6790": "sec:16-chip-frontend-021",
+    "ux65f6ux5e8fux8defux5f84ux4e0eux57faux672cux6982ux5ff5": "sec:16-chip-frontend-022",
+    "ux9759ux6001ux65f6ux5e8fux5206ux6790ux7684ux6838ux5fc3ux6b65ux9aa4": "sec:16-chip-frontend-023",
+    "staux4e2dux7684ux5173ux952eux95eeux9898": "sec:16-chip-frontend-024",
+    "ux65f6ux5e8fux4f18ux5316ux4e0eux6536ux655b": "sec:16-chip-frontend-025",
+    "staux5de5ux5177ux4e0eux5206ux6790ux6d41ux7a0b": "sec:16-chip-frontend-026",
+    "ux82afux7247ux53efux6d4bux6027ux8bbeux8ba1": "sec:16-chip-frontend-027",
+    "ux626bux63cfux6d4bux8bd5": "sec:16-chip-frontend-028",
+    "ux626bux63cfux94fe": "sec:16-chip-frontend-029",
+    "ux6d4bux8bd5ux5411ux91cfux81eaux52a8ux751fux6210": "sec:16-chip-frontend-030",
+    "ux81eaux52a8ux5316ux6d4bux8bd5ux8bbeux5907": "sec:16-chip-frontend-031",
+    "ux626bux63cfux94feux538bux7f29": "sec:16-chip-frontend-032",
+    "ux7247ux4e0aux65f6ux949fux63a7ux5236ux5668": "sec:16-chip-frontend-033",
+    "ux5185ux5efaux81eaux6d4bux8bd5": "sec:16-chip-frontend-034",
+    "ux5b58ux50a8ux5668ux6545ux969cux7c7bux578b": "sec:16-chip-frontend-035",
+    "ux5b58ux50a8ux5668ux6d4bux8bd5ux7b97ux6cd5": "sec:16-chip-frontend-036",
+    "ux82afux7247ux540eux7aefux5b9eux73b0": "chap:17-chip-backend",
+    "ux82afux7247ux540eux7aefux8bbeux8ba1ux6d41ux7a0b": "sec:17-chip-backend-001",
+    "ux82afux7247ux7269ux7406ux8bbeux8ba1": "sec:17-chip-backend-002",
+    "ux8bbeux8ba1ux521dux59cbux5316": "sec:17-chip-backend-003",
+    "ux5e03ux5c40ux89c4ux5212": "sec:17-chip-backend-004",
+    "ux7535ux6e90ux89c4ux5212": "sec:17-chip-backend-005",
+    "ux81eaux52a8ux5e03ux5c40ux548cux65f6ux5e8fux529fux8017ux9762ux79efux4f18ux5316": "sec:17-chip-backend-006",
+    "ux65f6ux949fux6811ux7efcux5408": "sec:17-chip-backend-007",
+    "ux5e03ux7ebf": "sec:17-chip-backend-008",
+    "ux6570ux636eux8f93ux51fa": "sec:17-chip-backend-009",
+    "ux82afux7247ux65f6ux5e8f-signoff": "sec:17-chip-backend-010",
+    "ux82afux7247ux529fux8017ux4e0e-ir-signoff": "sec:17-chip-backend-011",
+    "ux7269ux7406ux9a8cux8bc1": "sec:17-chip-backend-012",
+    "ux56deux7247ux6d4bux8bd5ux4e0eux6f14ux793a": "chap:18-test-and-show",
+    "ux82afux7247ux5c01ux88c5ux4e0eux56deux7247ux6d4bux8bd5": "sec:18-test-and-show-001",
+    "ux82afux7247ux5c01ux88c5": "sec:18-test-and-show-002",
+    "ux56deux7247ux6d4bux8bd5": "sec:18-test-and-show-003",
+    "ux6d4bux8bd5pcbux8bbeux8ba1ux4e0eux5236ux4f5c": "sec:18-test-and-show-004",
+    "ux5b8cux6574ux7684ux82afux7247ux6d4bux8bd5ux7cfbux7edfux96c6ux6210": "sec:18-test-and-show-005",
+    "ux6027ux80fdux6d4bux8bd5": "sec:18-test-and-show-006",
+    "ux603bux7ed3": "chap:19-conclusion",
+    "ux53c2ux8003ux6587ux732e": "chap:30-references",
+    "ux76f8ux5173ux8d44ux6599": "chap:40-resources"
+  },
+  "assets": {
+    "assets/01/soc.png": "b5d58b8c950e3c1795d3c35ae26482318208f3ed545d79a29331f24974e2a8ae",
+    "assets/01/structure_4part.png": "1a8c6a2c9f23764c85f724ea5e46c016baaa90d1cb95a63df4d388e3cc8f54ad",
+    "assets/01/芯片实现流程.png": "32b8093cb0c564d30972f678626008deec9a30dcbe73057fb43e25731fdf0b7e",
+    "assets/04/encoding-format.pdf": "5aff8d005cc8fbff226031525775d1bfe149f14a5021bdb03ea5a6f6f105d393",
+    "assets/04/la-branch.png": "074606dff4d382478d30f3818c70bcdd3c792d67b76225b8910933c8bf7309ba",
+    "assets/05/单周期处理器.drawio": "ac5ab6d6a1d0e49c15cbfbbe4b21bd816d5927b63868a3022cec52189b688741",
+    "assets/05/单周期处理器.png": "18bbcf9fad17c80df40fb9ddf9d374eb04c1a6d7f795ae5e05fb787c13f166c9",
+    "assets/08/axi_burst.jpg": "75fa99a1fe196dc04e7e71da0c4f18a64d4f1bd71b170d1f637456a75ade6e1b",
+    "assets/08/axi_burst.json": "9e91739ae65d6e20e3e34cc9e66307d16690dfc6a39db91b4fc0f8d24bb726f7",
+    "assets/08/axi_channels.drawio": "259f4d7bcd818d649fb7cd23faa566b5df87397d2eeedddf1f8a6b5a5acc9175",
+    "assets/08/axi_channels.jpg": "4173ec7cdcacde798d262f753b8208c69cf988d4f656b9830487842c6f664fe7",
+    "assets/08/axi_channels.png": "5f423a86eb0336fa53817058bbb9f6b8adcd5dc2b51021e5983041f479cf77d1",
+    "assets/08/axi_handshake.jpg": "f28d7378f35878efaa72dbec562784df8055a788a508ad064050419e3b76b58a",
+    "assets/08/axi_handshake.json": "86f4d36dff2382a665f6b11a2c6c183835513ce39d1575319795f12aedbebb0a",
+    "assets/08/axi_read.jpg": "28a2ead03a1b5d3a7edf5bdef88b1c19f1167a7f955d7db71d588b9f7a84097e",
+    "assets/08/axi_read.json": "a17be724ceb5973cb5ce74260c443fdc8e0b81d3480cfba448dcdb322c842aa9",
+    "assets/08/axi_write.jpg": "74dc8906d00bc90b9417965d5316a14ba1f090ed8d1d556ef54a85230080b353",
+    "assets/08/axi_write.json": "1cba50c0381e4ed699c77423498f0cebd2c0977742971cd3179a41b42ba82cfb",
+    "assets/08/sram_read.jpg": "fe1682a601226f21d7c84a3eaac3a4466685f0be551a74746a08d2548bb90f86",
+    "assets/08/sram_read.json": "649c4daf044b9c76b9cc222db7e4a6db5ed739e0954260605304b935f57c8e8c",
+    "assets/08/sram_read.svg": "58b9a43d5a9991675675408acb22605ba66d1163fc9ed54562f28a74d8414c9b",
+    "assets/08/sram_write.jpg": "fe1682a601226f21d7c84a3eaac3a4466685f0be551a74746a08d2548bb90f86",
+    "assets/08/sram_write.json": "cde51922649c2f692dd23af24565051e685b3b5f67f9387c6c7e0b27ca0bf302",
+    "assets/08/sram_write.svg": "8e2ab1c4884f1850770f2cb3cfed095ea2d42b3d5a4eaf42017b39b54bcfce89",
+    "assets/08/test_wave.json": "2bd67fb922f06b5455af596afd1dd24de87c7165e53fefe924958d781a2f5e5a",
+    "assets/09/cache_access_address_division.png": "32a428c718ae42e3568248c243d0d20740be307a1815e945587596c59e23215d",
+    "assets/09/cache_fsm.png": "faaedb6fbc19fce8ea42d5e29f8b8bb9e3422be9ceb5a2b6655c1a59caa60b57",
+    "assets/10/hard-tlb-ctrl.png": "90e1cf81c587627babd07c9dacfa508f719a1beeac7e4074a65f0228c1591e61",
+    "assets/10/soft-tlb-ctrl.png": "1e4cf8ad2044e8b0e43d5465fc121706628f5be75acda914d720e1ec23bcb469",
+    "assets/11/BiModal.png": "3fced90436a76db9052901a1a473ea356a7540522af84a2d1f9e57f7b822eadb",
+    "assets/11/GShare.png": "752a94e342b8ecc92191791d22cb62b1c44e1acd4d1e556d0d939fd01495abe8",
+    "assets/11/branch-direction-correlation.png": "bc5296be70329e049763a1fd4eda23ab1fcdfed2bcd38a4774fa4d95535d1a3d",
+    "assets/11/branch-path-correlation.png": "b4a4567feaade2000873e9686f91f8f1c2a82dda1e4c9e51c2f31071dd6d929c",
+    "assets/12/baixin_arch.png": "c36146bbf6aa48f7c869d208cc3fa196dd03692e22f59eaba592003fec5aa6e0",
+    "assets/12/secure_four.png": "8a4bf964bfcc08895deace6f0847b8b20a4f66959c9bc5410f24cba05a05645e",
+    "assets/12/secure_four.webp": "6f6ba7fd0aa6c2e22dfca75b17c004663a21b19933bb8c326c8dba445d86eb0d",
+    "assets/12/secure_one.png": "c3418625dd31c3800612e9f7dec9127e97c1136db0976e231edb6a22969c16d2",
+    "assets/12/secure_one.webp": "97683a21b97cf436207aff152ee7837f7c41b2d0a87e35c28f0d5626be604761",
+    "assets/12/secure_three.png": "b72748dc479be10d3b9a31c3554b9737bb5bce32cd5a7f632b0ab81f4f9b1be8",
+    "assets/12/secure_three.webp": "316b93d5cdcadd4875fd5221a9f011983f4cd827b11b0faabd7836fa0a153d35",
+    "assets/12/secure_two.png": "4cefe2585b790f3fb8eed508e367d6622979dc969b3ed95c579f030bfbc1be84",
+    "assets/12/secure_two.webp": "497ad1b8c349abe6a6be3f6a5ad98c3c04de1001d2e328637b2b1b8a4cc07c8f",
+    "assets/13/am-arch.jpg": "7cb060c23364b6d2b1b16837e766e8598d85dfa3d37dfd2f5da4e54f768b179d",
+    "assets/15/sram-gen.png": "f5d4eecdae61fe658f5f1b73a51f0da60daf6085616368663528c4092035dee1",
+    "assets/15/芯片设计流程.png": "dab1b93287345005bcff0f37bce264550ce2d31a231248b97a59bc3ce6425a46",
+    "assets/16/DC处理对象划分.png": "c522552b911d03fb5ad0bb88212a05983085ada570baed7bbf31ff5ede425a04",
+    "assets/16/DC工作流程.png": "1dfb58aefed787acfa45d0a097000b87bc3ab794798a28799efb88c16535c40d",
+    "assets/16/DC综合过程示意图.png": "0c500e7d5ed033ad1f1e76c7d1cdb2f96ea12dd0a863307ce191b6f519b829e5",
+    "assets/16/DFT扫描链.png": "16596229bebe33b462afe5ae2f9445c4803d643971911fcf25dc50d00598fdbb",
+    "assets/16/内建自测试电路模块示意图.png": "9acfc6e84779f357685054753fe350a6f56823df5b19ef096acede1161e1fe47",
+    "assets/16/建立时间与保持时间概念.png": "bdf0740a4c7d92c66c7beaad13c1ed18618c60f4dbce247037f174bf2df8af14",
+    "assets/17/布局规划考虑时钟树延时.png": "7d338caa35070b050052864792725e68a9f78156ede2d6c44a43086a24ad9597",
+    "assets/17/时钟树综合.png": "03c0389ff4068965bef8a5603e86cf55f990b3a562e5640c8e34cf3c341f6f38",
+    "assets/18/sys_level_test.drawio": "75af913738ec45c888f8f7485e7f7a656c7b0f11b79f09e56140024b03ca7df8",
+    "assets/18/sys_level_test.png": "42e9c1d1332411c22a45670d5cc8367bdd95bc563d15f2afb9f88326627aeacc"
+  },
+  "summary": {
+    "chapters": 22,
+    "headings": 346,
+    "original_code_blocks": 109,
+    "migrated_code_blocks": 111,
+    "tables": 21,
+    "table_breaks_repaired": 10,
+    "figures": 38,
+    "explicit_edits": 21,
+    "malformed_lists_repaired": 8
+  },
+  "additional_code_blocks": [
+    {
+      "file": "chapters/14-software.tex",
+      "code": "make -j$(nproc)"
+    },
+    {
+      "file": "chapters/14-software.tex",
+      "code": "make install"
+    }
+  ]
+}

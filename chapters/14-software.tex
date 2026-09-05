@@ -1,0 +1,119 @@
+% !TeX root = ../main.tex
+% 原始章节：14-software.Rmd
+
+\chapter{应用软件适配}\label{chap:14-software}
+
+\section{Linux 系统 init 进程介绍}\label{sec:14-software-001}
+
+在 Linux 系统中，\texttt{init} 进程是系统启动后第一个运行的进程，也是所有其他进程的父进程。它承担以下功能：
+
+\begin{enumerate}
+\item \textbf{启动系统服务}：\texttt{init} 负责在系统启动过程中加载和启动各种系统服务和守护进程（例如网络服务、日志服务等）。它通过读取特定的初始化脚本来确定哪些服务需要启动。
+\item \textbf{设定运行级别}：\texttt{init} 根据配置文件（如 \texttt{/etc/inittab} 或 \texttt{systemd} 下的配置）决定系统启动后应该处于什么运行级别（runlevel），比如单用户模式、多用户模式或图形化模式等。传统的运行级别包括：
+\begin{itemize}
+\item \texttt{0}：关机
+\item \texttt{1}：单用户模式
+\item \texttt{2-5}：多用户模式（不同的服务集）
+\item \texttt{6}：重启
+\end{itemize}
+\item \textbf{管理进程生命周期}：\texttt{init} 负责监控系统中的其他进程。当某个进程终止时，它会清理资源并进行相关的管理工作。特别是，孤立的子进程会被 \texttt{init} 接管。
+\item \textbf{系统关闭和重启}：在系统关机或重启时，\texttt{init} 会依次停止所有运行中的服务，确保系统能安全地退出。
+\end{enumerate}
+
+
+现代 Linux 系统通常使用 \texttt{systemd} 替代传统的 SysV \texttt{init}，它提供了更强大的并行化启动和依赖管理功能。
+但对于我们嵌入式处理器芯片的使用场景，使用 systemd 可能较为臃肿。我们一般选用 Busybox 作为 init，避免 systemd 的臃肿和复杂度。
+
+使用 Busybox 之后，我们得到了一个最小化的可用 Linux 操作系统。但 Busybox 中的 Init 基本上不会为我们做任何的初始化工作，
+因此使用 Busybox 的场景下，我们需要根据我们的需求，自行编写一些 Init 脚本放在合适位置，以供 busybox 在系统启动后自动调用，完成额外初始化工作。
+
+如对网络，我们可编写脚本，在启动后使用 ip 命令配置本地网络地址，使能网络端口，配置默认路由及域名解析服务等。
+
+\section{Busybox 工具集介绍}\label{sec:14-software-002}
+
+对于我们设计的处理器，它们的存储和内存资源非常有限，完全不像我们日常使用的电脑那样有着充足的硬件资源。
+在这种情况下，我们需要一套轻量级的工具来为系统提供基础的命令行功能。这时，BusyBox 就成了一个理想的选择。
+
+BusyBox 可以看作是一个多合一的工具箱，它把 Linux 系统中许多常用的命令打包在一起。
+比如我们平时在 Linux 终端中使用的 ls、cp、rm 这些命令，BusyBox 都能提供，虽然这些命令在功能上可能稍微简化了一些，但对于嵌入式设备来说，已经绰绰有余了。
+
+可以这样理解它：在一个典型的 Linux 系统中，ls 是一个单独的可执行文件，cp 也是一个单独的可执行文件，每个工具都有自己的一份代码。
+而在 BusyBox 中，这些命令共享同一个可执行文件，只是根据输入的命令参数来执行不同的功能。
+这样做的好处非常明显------体积大大缩小，而且减少了系统的复杂性。
+
+BusyBox 的另一个特别之处在于它的可定制性。
+你可以根据设备的需求，在编译 BusyBox 时选择你真正需要的工具。
+比如，如果你的嵌入式设备不需要处理压缩文件，你就可以在编译时禁用 gzip 和 tar，这进一步减小了可执行文件的体积。
+实际上，在很多嵌入式 Linux 发行版中，比如 OpenWRT 或者 Buildroot， BusyBox 被广泛使用。
+这些发行版本质上都是为了在资源受限的环境下运行，因此必须保证系统既能提供必要的功能，又不会占用太多的存储和内存。
+
+\section{交叉编译 Busybox}\label{sec:14-software-003}
+
+交叉编译 BusyBox 可能看起来有些复杂，但其实是非常简单的。而对于其它用户程序的编译流程，也是差不多相似的。你可以举一反三。
+
+交叉编译的主要目的是在一个开发环境中为不同的目标平台（比如嵌入式设备）编译程序。具体到我们这里，就是在 x86\_64 的 Linux 平台交叉编译到 LoongArch 的平台。
+
+\textbf{第一步：准备交叉编译工具链}
+
+交叉编译的关键在于你需要一个``工具链''（Toolchain），它包含编译器、链接器、库等，专门为目标平台构建程序。
+我们这里需要使用由龙芯官方提供的 LoongArch32R 的 8.3.0 GCC 工具链。
+我们从官方下载安装相应的交叉编译工具链即可。
+
+\textbf{第二步：下载 BusyBox 源代码}
+
+从 BusyBox 官方 Git 镜像仓库获取最新的源码：
+
+% 代码语言：bash
+\begin{CodeBlock}
+git clone git@github.com:mirror/busybox.git
+cd busybox
+\end{CodeBlock}
+
+\textbf{第三步：配置编译选项}
+
+现在，你需要配置 BusyBox 以便为目标设备编译。BusyBox 提供了一个交互式的配置工具，类似于内核配置工具 menuconfig，可以让你选择编译哪些命令。
+
+首先，你可以使用 BusyBox 自带的默认配置作为基础：
+
+\texttt{make\ defconfig}
+
+这会生成一个默认的配置文件 .config，其中包含了 BusyBox 的基本命令集。
+
+接下来，为了进行交叉编译，你需要告诉 BusyBox 使用哪一个编译器。这就是我们之前准备的交叉编译工具链：
+
+\texttt{make\ menuconfig}
+
+进入配置菜单后，选择以下路径：
+
+进入 ``Settings'' → ``Build Options'' → ``Cross Compiler prefix''
+将前缀设置为你交叉编译器的名称，比如：loongarch32r-linux-gnusf-
+你也可以在这个菜单中进一步裁剪 BusyBox 的功能，根据设备的需求启用或禁用特定命令。
+
+\textbf{第四步：编译 BusyBox}
+
+配置完成后，就可以开始编译了。输入以下命令：
+
+\begin{CodeBlock}
+make -j$(nproc)
+\end{CodeBlock}
+
+这会调用交叉编译器，为目标设备生成 BusyBox 二进制文件。\texttt{-j\$(nproc)} 参数会使用你电脑的所有处理器核心来加速编译。
+
+\textbf{第五步：安装 BusyBox}
+
+编译完成后，你可以将 BusyBox 安装到一个指定的目录中。这通常是一个临时的根文件系统目录，稍后你可以将它打包并上传到设备上：
+
+\begin{CodeBlock}
+make install
+\end{CodeBlock}
+
+安装过程会生成一个基本的嵌入式 Linux 文件系统结构，所有的 BusyBox 命令都将软链接到一个单一的 BusyBox 可执行文件上。你可以在生成的目录中查看这些链接。
+
+\textbf{第六步：部署到设备}
+
+现在你已经有了编译好的 BusyBox 和它的相关文件。接下来就是将它复制到将作为我们启动 sd 卡的根目录：
+
+\texttt{sudo\ cp\ -r\ \_install/*\ /some\_sdcard\_used\_as\_rootfs/}
+
+注意，这里一定需要使用 root 用户进行复制。
+部署完成后，在我们的处理器上运行 Linux，并指定根文件系统为我们刚才构建的 SD 卡 ext4 分区即可。
