@@ -112,7 +112,8 @@ latexmk examples/code-styles.tex
 ## GitHub 同步维护
 
 远程仓库：<https://github.com/BUAA-CI-LAB/designpractice>，主分支为 `main`。
-书稿、图片、字体、配置及迁移记录纳入版本管理；`build/` 下的 PDF 和编译中间文件在本地生成，不上传。
+书稿、图片、字体、配置及迁移记录纳入版本管理；`build/` 下的书籍 PDF（`main.pdf`）和代码样张（`code-styles.pdf`）也同步到仓库，便于直接下载阅读。编译缓存、日志和 SyncTeX 等中间文件继续忽略。
+修改书稿或代码样式后，请重新编译对应的 PDF，并与源文件一起提交。
 
 本目录已关联远程仓库。在本目录开始修改前，先拉取远程更新（工作区应无未提交修改）：
 

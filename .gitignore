@@ -1,4 +1,4 @@
-/build/
+# LaTeX intermediate files; compiled PDFs in build/ are tracked.
 *.synctex.gz
 *.aux
 *.log
