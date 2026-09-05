@@ -10,6 +10,24 @@
   },
   "labels": 384,
   "references": 38,
+  "code_languages": {
+    "BookVerilog": 12,
+    "BookShell": 31,
+    "BookDTS": 11,
+    "BookMake": 1,
+    "BookConfig": 2,
+    "BookC": 12,
+    "BookScala": 19,
+    "BookText": 5,
+    "BookLoongArch": 8,
+    "BookPseudo": 1,
+    "BookDiff": 1,
+    "BookLinker": 1,
+    "BookSystemVerilog": 1,
+    "BookTcl": 6
+  },
+  "highlighted_code_blocks": 106,
+  "plain_text_blocks": 5,
   "original_code_blocks_hash_verified": 109,
   "original_assets_hash_verified": 55,
   "recorded_local_inputs": [
@@ -76,6 +94,7 @@
     "chapters/30-references.tex",
     "chapters/40-resources.tex",
     "config/book-info.tex",
+    "config/code-style.tex",
     "config/preamble.tex",
     "main.tex"
   ],

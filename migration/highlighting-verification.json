@@ -1,0 +1,76 @@
+{
+  "code_blocks_unchanged_from_initial_migration": 111,
+  "code_content_sha256": "999ec631e0da90ee60695e24866b1d5abcaf8a13c4135f16be00774366a292eb",
+  "code_languages": {
+    "BookVerilog": 12,
+    "BookShell": 31,
+    "BookDTS": 11,
+    "BookMake": 1,
+    "BookConfig": 2,
+    "BookC": 12,
+    "BookScala": 19,
+    "BookText": 5,
+    "BookLoongArch": 8,
+    "BookPseudo": 1,
+    "BookDiff": 1,
+    "BookLinker": 1,
+    "BookSystemVerilog": 1,
+    "BookTcl": 6
+  },
+  "pdfs": {
+    "main": {
+      "pages": 275,
+      "pages_with_colored_code_text": 113,
+      "colored_text_operators": {
+        "keyword": 2085,
+        "type": 1314,
+        "comment": 5265,
+        "string": 1422,
+        "removed": 394,
+        "added": 249
+      },
+      "fonts": [
+        "/GSXJFF+LMMono10-Regular-Identity-H",
+        "/GTVRJV+DejaVuSansMono",
+        "/IHDCWL+LatinModernMath-Regular-Identity-H",
+        "/JGUKHG+LMRoman10-Regular-Identity-H",
+        "/JHLEDX+LMRoman10-Bold-Identity-H",
+        "/JRYMRO+FandolSong-Regular-Identity-H",
+        "/NGTUOI+FandolSong-Bold-Identity-H",
+        "/REENYM+LMRoman10-Italic-Identity-H",
+        "/RQXYOW+FandolHei-Bold-Identity-H",
+        "/SHLWCH+FandolKai-Regular-Identity-H",
+        "/VEQQKW+FandolFang-Regular-Identity-H",
+        "/YBQRHU+LMMonoLt10-Bold-Identity-H"
+      ],
+      "errors_missing_glyphs_font_warnings_overfull_boxes": 0,
+      "sha256": "5871483e84a440d3d25770fdb41bc40f02100acd6acaf9dfbbb05ddf4b3cc9eb"
+    },
+    "code-styles": {
+      "pages": 5,
+      "pages_with_colored_code_text": 5,
+      "colored_text_operators": {
+        "comment": 124,
+        "keyword": 90,
+        "type": 33,
+        "string": 42,
+        "removed": 4,
+        "added": 4
+      },
+      "fonts": [
+        "/ATMKGA+DejaVuSansMono-Bold",
+        "/BEPGIC+FandolSong-Regular-Identity-H",
+        "/DDJHHF+DejaVuSansMono",
+        "/IUOPFF+FandolFang-Regular-Identity-H",
+        "/LIOSER+LMRoman10-Regular-Identity-H",
+        "/QRMRDR+LMRoman10-Bold-Identity-H",
+        "/RQRVGB+FandolSong-Bold-Identity-H",
+        "/XYSWXT+LMMono10-Regular-Identity-H",
+        "/ZEURAD+LMMonoLt10-Bold-Identity-H"
+      ],
+      "errors_missing_glyphs_font_warnings_overfull_boxes": 0,
+      "sha256": "3ed1ceb0e1965530e8ff0e9d0ee13ae7dbc9b0896e07518c5e06534f67f81a30"
+    }
+  },
+  "passed": true
+}

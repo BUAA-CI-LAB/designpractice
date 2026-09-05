@@ -217,8 +217,8 @@ FPGA 上存在（不可复位的）单写口多读口存储器原语（RAM32M/RA
 
   其具体实现逻辑，这里用一个 c 程序简单表示一下，其中 \texttt{WPORT\_NUM} 表示写口数量，\texttt{RDEPTH} 表示寄存器深度。假设所有寄存器中存储的数据均为一个 int 类型的整数，则有：
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 int register[WPORT_NUM][RDEPTH];
 // 函数功能：读取寄存器堆
 // 参数：
@@ -249,8 +249,8 @@ void write(int wport_id ,int id, int wdata) {
 
   在读取的时候，同时读取所有寄存器堆的值，并全部异或，即得到了最初希望写入的值。
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookText
+\begin{CodeBlock}[language=BookText]
 希望写入的值： w_expect;
 实际写入的值： w_value = w_expect ^ other_value;
 读取时候的值： w_value ^ other_value = w_expect ^ other_value ^ other_value = w_expect

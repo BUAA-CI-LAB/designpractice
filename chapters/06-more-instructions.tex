@@ -26,8 +26,8 @@
   添加译码信号
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/isa/la32r
 object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
   def ADDW    = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0_?????_?????_?????")
@@ -44,8 +44,8 @@ object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
 
 这说明，add.w和addi.w指令需要通过ALU得到计算结果，并且ALU会进行加法操作，最终操作结果会写回寄存器。根据instrType信号，会进行操作数选择，可以参考：
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/frontend/IDU.scala
 val SrcTypeTable = List(
     Instr3R     -> (SrcType.reg, SrcType.reg),
@@ -56,8 +56,8 @@ val SrcTypeTable = List(
 
 这说明add.w指令均使用寄存器值作为操作数，而addi.w指令其中一个操作数源于寄存器。对于Instr2RI12指令，其操作数会对指令的21\textasciitilde10位进行符号拓展：
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/frontend/IDU.scala
 val imm = LookupTree(instrType, List(
     Instr2RI12    -> SignExt(instr(21, 10), XLEN),
@@ -73,8 +73,8 @@ val imm = LookupTree(instrType, List(
   修改ALU
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/backend/fu/ALU.scala
 class La32rALU(hasBru : Boolean = false) extends AbstractALU {
 
@@ -100,8 +100,8 @@ class La32rALU(hasBru : Boolean = false) extends AbstractALU {
   添加译码信号
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/isa/la32r
 object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
   def SLT     = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0_?????_?????_?????")
@@ -122,8 +122,8 @@ object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
   修改ALU
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/backend/fu/ALU.scala
 class La32rALU(hasBru : Boolean = false) extends AbstractALU {
 
@@ -146,8 +146,8 @@ class La32rALU(hasBru : Boolean = false) extends AbstractALU {
   添加译码信号
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/isa/la32r/LA32R.scala
 object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
   def NOR     = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0_?????_?????_?????")
@@ -170,16 +170,16 @@ object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
 }
 \end{CodeBlock}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // // src/main/scala/eulacore/frontend/IDU.scala
  val SrcTypeTable = List(
     Instr2RI12ZEXT -> (SrcType.reg, SrcType.imm),
   )
 \end{CodeBlock}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // // src/main/scala/eulacore/frontend/IDU.scala
 val imm = LookupTree(instrType, List(
     Instr2RI12ZEXT -> ZeroExt(instr(21, 10), XLEN),
@@ -194,8 +194,8 @@ val imm = LookupTree(instrType, List(
   修改ALU
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/backend/fu/ALU.scala
 class La32rALU(hasBru : Boolean = false) extends AbstractALU {
 
@@ -221,8 +221,8 @@ class La32rALU(hasBru : Boolean = false) extends AbstractALU {
   添加译码信号
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/isa/la32r/LA32R.scala
 object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
   def SLLW    = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 0 1 1 1 0_?????_?????_?????")
@@ -243,16 +243,16 @@ object LA32R_ALUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
 }
 \end{CodeBlock}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/frontend/IDU.scala
 val SrcTypeTable = List(
     Instr2RI5   -> (SrcType.reg, SrcType.imm),
 )
 \end{CodeBlock}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/frontend/IDU.scala
 val imm = LookupTree(instrType, List(
     Instr2RI5     -> ZeroExt(instr(14, 10), XLEN),
@@ -267,8 +267,8 @@ val imm = LookupTree(instrType, List(
   修改ALU
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/backend/fu/ALU.scala
 class La32rALU(hasBru : Boolean = false) extends AbstractALU {
 
@@ -293,8 +293,8 @@ class La32rALU(hasBru : Boolean = false) extends AbstractALU {
   添加译码信号
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/isa/la32r/LA32R.scala
 object LA32R_MDUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
  def MULW    = BitPat("b0 0 0 0 0 0 0 0 0 0 0 1 1 1 0 0 0_?????_?????_?????")
@@ -347,8 +347,8 @@ FuType 选择 FuType.mdu，指令在后端时会选择乘除器（MDU）作为�
   添加译码信号
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/isa/la32r/LA32R.scala
 object LA32R_BRUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
   def JIRL  = BitPat("b0 1 0 0 1 1_????????????????_?????_?????")
@@ -375,8 +375,8 @@ object LA32R_BRUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
 }
 \end{CodeBlock}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/frontend/IDU.scala
 val SrcTypeTable = List(
     Instr2RI16  -> (SrcType.reg, SrcType.imm),
@@ -385,8 +385,8 @@ val SrcTypeTable = List(
   )
 \end{CodeBlock}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/frontend/IDU.scala
  val imm = LookupTree(instrType, List(
     Instr2RI16    -> SignExt(instr(25, 10), XLEN),
@@ -416,8 +416,8 @@ val SrcTypeTable = List(
   添加译码信号
 \end{enumerate}
 
-% 代码语言：scala
-\begin{CodeBlock}
+% 代码语言：BookScala
+\begin{CodeBlock}[language=BookScala]
 // src/main/scala/eulacore/isa/la32r/LA32R.scala
 object LA32R_LSUInstr extends HasLa32rInstrType with HasEulaCoreParameter {
   def LDB   = BitPat("b0 0 1 0 1 0 0 0 0 0_????????????_?????_?????")

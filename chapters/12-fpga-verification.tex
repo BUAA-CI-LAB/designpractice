@@ -22,8 +22,8 @@
 
 龙芯提供的百芯开发板 SoC 位于chplab工程下，相关目录如下
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookText
+\begin{CodeBlock}[language=BookText]
 .
 ├── chip              SoC顶层。
 │　　└── soc_demo       SoC顶层代码实例。
@@ -158,22 +158,22 @@ Windows下可以使用免安装的\href{https://gitee.com/chenzes/chiplab-tools/
 
 比如， SoC 中具有 MAC 控制器，PMON 中也有 MAC 驱动，则我们输入命令
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 ifconfig dmfe0 10.90.50.44
 \end{CodeBlock}
 
 则可以给开发板上的网卡配置 IP 为 10.90.50.44（具体需配置的 IP 请查阅同网段的电脑 IP），假设同网段的电脑 IP 为 10.90.50.43,则可以继续输入命令
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 ping 10.90.50.43
 \end{CodeBlock}
 
 用于查看网络是否成功接入。Linux 在 ping 网络是会一直发 ping 包，可以 \texttt{Ctrl+C} 取消 ping。运行结果如下：
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookText
+\begin{CodeBlock}[language=BookText]
 PMON> ifconfig dmfe0 10.90.50.44
 rx ring 70acee0
 tx ring 70acf60
@@ -207,15 +207,15 @@ PMON>
 具体方法参见\href{https://gitee.com/chenzes/chiplab-tools/releases/download/chiplab-tools/tftp.zip}{tftp下载地址}。
 目前运行 Linux 的方法是，先运行 PMON，随后通过网口 load Linux 内核进入 FPGA 上的 DDR3 内存上。在load内核前，需要通过以下命令裁剪掉内核二进制文件中的符号信息。
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 loongarch32r-linux-gnusf-strip vmlinux
 \end{CodeBlock}
 
 load 命令为
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 load tftp://10.90.50.43/vmlinux
 \end{CodeBlock}
 
@@ -224,30 +224,30 @@ load tftp://10.90.50.43/vmlinux
 具体过程如下：
 启动 PMON 后，输入命令
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 ifconfig dmfe0 10.90.50.44
 \end{CodeBlock}
 
 给开发板上的网卡配置 IP 为 10.90.50.44（具体需 配置的 IP 请查阅同网段的电脑 IP），假设同网段的电脑 IP 为 10.90.50.43, 则可以继续输入命令
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 ping 10.90.50.43
 \end{CodeBlock}
 
 用于查看网络是否成功接入。
 网络配置好了，需要通过网络下载 Linux 内核，需要先搭建好 tftp 服务器，假设搭建的 tftp 服务器 IP 为 10.90.50.43，将要下载 Linux 内核放到 tftp 服务器的根目录下，输入命令
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 load tftp://10.90.50.43/vmlinux
 \end{CodeBlock}
 
 即可 load 内核进入 FPGA 上的内存。
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookText
+\begin{CodeBlock}[language=BookText]
 PMON> load tftp://10.90.50.43/vmlinux
 Loading file: tftp://10.90.50.43/vmlinux (elf)
 0x80200000/5350380 + 0x8071a3ec/169220(z) + 6926 syms\
@@ -257,8 +257,8 @@ PMON> g console=ttyS0,115200 rdinit=sbin/init
 
 上表中显示 load 成功了，输入命令
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 g console=ttyS0,baudrate rdinit=sbin/init
 \end{CodeBlock}
 
@@ -273,16 +273,16 @@ g console=ttyS0,baudrate rdinit=sbin/init
 
 使用命令（\textbf{请使用自己的IP}）
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 setenv ipaddr 10.90.50.44
 setenv serverip 10.90.50.43
 \end{CodeBlock}
 
 可以配置u-boot和服务器（自己电脑）的使用的ip（两者需在同一子网下，配置的具体IP需查看自己本机IP），u-boot中通过命令
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 ping 10.90.50.43
 \end{CodeBlock}
 
@@ -290,15 +290,15 @@ ping 10.90.50.43
 
 完成了网络配置，就可以使用uboot加载内核，使用命令
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 setenv bootcmd console=ttyS0,115200 rdinit=/init
 \end{CodeBlock}
 
 可以配置内核的启动参数。 通过命令
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 tftpboot 0xa3000000 vmlinux
 \end{CodeBlock}
 
@@ -306,8 +306,8 @@ tftpboot 0xa3000000 vmlinux
 
 最后，使用命令
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 bootelf 0xa3000000 bootcmd
 \end{CodeBlock}
 

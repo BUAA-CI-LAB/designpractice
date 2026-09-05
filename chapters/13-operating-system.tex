@@ -22,8 +22,8 @@
 
 如下文件，定义了 LoongArch32 指令集中的所有通用寄存器别名以及控制状态寄存器。
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 #ifndef _SYS_REGDEF_H
 #define _SYS_REGDEF_H
 
@@ -123,8 +123,8 @@
 
 如下文件定义了缓存行的相关控制内联汇编函数：
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 #ifndef __ASM_CACHEOPS_H
 #define __ASM_CACHEOPS_H
 
@@ -168,8 +168,8 @@ static inline void icache_lock(void *func, size_t len)
 
 如下文件定义了内核态下的虚拟内存布局，及虚拟地址相关的宏定义：
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 #ifndef _MMU_H_
 #define _MMU_H_
 
@@ -356,8 +356,8 @@ void tlb_invalidate(u_int asid, u_long va);
 
 启动代码接手引导程序完成基本初始化的硬件平台，并进一步为操作系统运行准备环境。如配置控制寄存器，使得处理器处于某种地址翻译状态，以符合先前头文件中对虚拟地址空间的定义。如配置栈指针，使得处理器可以运行后续 C 部分的代码。如抹除 BSS 段区域的数据，以提供正确的运行环境。完成一系列初始化操作后，启动代码将会跳转到由 C 语言编写的后续内核初始化代码。
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 #include <asm/asm.h>
 #include <mmu.h>
 
@@ -421,8 +421,8 @@ bss_loop_end:
 
 内核正确编译链接后，即可通过 QEMU 等模拟器调试运行，查看内核执行情况是否符合预期。
 
-% 代码语言：asm
-\begin{CodeBlock}
+% 代码语言：BookLoongArch
+\begin{CodeBlock}[language=BookLoongArch]
 /*
  * Set the architecture to loongarch32.
  */
@@ -495,8 +495,8 @@ SECTIONS {
 
 在上述实现正确完成之后，需要为新的硬件平台编写串口驱动程序，允许内核与外部进行输入输出的交互操作，也方便在内核中通过 printk 进行调试。这部分实际上与体系结构无较多关系，仅与硬件平台有关。
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 #include <megasoc.h>
 #include <mmu.h>
 #include <printk.h>
@@ -565,8 +565,8 @@ LoongArch 是一个类似 MIPS，采用软件重填的 TLB 构成 MMU 的体系�
 
 具体移植中，首先是一部分汇编实现 TLB 重填，及 TLB 无效化的：
 
-% 代码语言：asm
-\begin{CodeBlock}
+% 代码语言：BookLoongArch
+\begin{CodeBlock}[language=BookLoongArch]
 #include <asm/asm.h>
 #include <mmu.h>
 
@@ -639,8 +639,8 @@ TLB 无效化及 TLB 重填支持的机制，在不同体系结构下不同，�
 
 之后针对上层页表部分抽象，也需要根据体系结构进行一些微调，如不同的权限位：
 
-% 代码语言：diff
-\begin{CodeBlock}
+% 代码语言：BookDiff
+\begin{CodeBlock}[language=BookDiff]
 diff --git a/kern/pmap.c b/kern/pmap.c
 index e62871f..c06a5dd 100644
 --- a/kern/pmap.c
@@ -811,8 +811,8 @@ index e62871f..c06a5dd 100644
 
 首先完成异常中断入口的实现，这里需要支持上下文的保存。这里还需要与体系结构硬件配合，完成对嵌套异常的支持。
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 #ifndef _TRAP_H_
 #define _TRAP_H_
 
@@ -888,8 +888,8 @@ void print_tf(struct Trapframe *tf);
 
 \end{CodeBlock}
 
-% 代码语言：asm
-\begin{CodeBlock}
+% 代码语言：BookLoongArch
+\begin{CodeBlock}[language=BookLoongArch]
 #include <asm/asm.h>
 #include <mmu.h>
 #include <trap.h>
@@ -991,8 +991,8 @@ void print_tf(struct Trapframe *tf);
 
 \end{CodeBlock}
 
-% 代码语言：asm
-\begin{CodeBlock}
+% 代码语言：BookLoongArch
+\begin{CodeBlock}[language=BookLoongArch]
 #include <asm/asm.h>
 #include <stackframe.h>
 
@@ -1037,8 +1037,8 @@ BUILD_HANDLER reserved do_reserved
 
 对于异常的处理，不同体系结构定义有不同的异常，这里需要针对体系结构编写对应异常处理的代码。
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 #include <env.h>
 #include <pmap.h>
 #include <printk.h>
@@ -1175,8 +1175,8 @@ void do_tlb_mod(struct Trapframe *tf) {
 
 绝大部分系统调用是体系结构无关的，但有一部分系统调用则与体系结构相关。这里需要针对新的体系结构，对一些依赖体系结构实现的系统调用进行更新。
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 diff --git a/kern/syscall_all.c b/kern/syscall_all.c
 index 5371a5a..2dec783 100644
 --- a/kern/syscall_all.c
@@ -1374,8 +1374,8 @@ menuconfig 是一套 CUI 工具，只需要按照 CUI 上提供的交互说明�
 
 我们只需要参考现成设备树的编写格式，按照我们自己 SoC 中实际的硬件情况，填写相应信息即可。如下是一个参考设备树：
 
-% 代码语言：dts
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
 /dts-v1/;
 /{
     model = "loongson,generic";
@@ -1537,8 +1537,8 @@ menuconfig 是一套 CUI 工具，只需要按照 CUI 上提供的交互说明�
 aliases 的意思是``别名''，因此 aliases 节点的主要功能就是定义别名，定义别名的目的就是为了方便访问节点。有时候引用的节点可读性很差，这个时候就可以定义一个简单的易于理解的名字。
 在系统的中的定义如下：
 
-% 代码语言：dts
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
     aliases {
         serial0 = &cpu_uart0;
         mmc0 = &mmc0;
@@ -1549,8 +1549,8 @@ aliases 的意思是``别名''，因此 aliases 节点的主要功能就是定�
 
 在系统中/chosen节点并不是代表一个真正的设备，但是可以在运行的时候描述参数或者固件。它必须是root的子节点。
 
-% 代码语言：dts
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
     chosen {
         stdout-path = "serial0:230400n8";
         bootargs = "earlycon";
@@ -1573,8 +1573,8 @@ aliases 的意思是``别名''，因此 aliases 节点的主要功能就是定�
 首先，它代表的是一个节点，label 主要是用于给节点加上标签，让节点有一个唯一的名字，方便访问节点，可以直接通过\&label 来访问，在设备树编译器编译之后会给定一个唯一的32位值。
 label的定义格式如下：
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
     [label:] node-name[@unit-address] {
         [properties definitions]
         [child nodes]
@@ -1584,8 +1584,8 @@ label的定义格式如下：
 ``：''前面的是节点标签(label)，``：''后面的是节点名字。
 具体实例：
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
 gpio1: gpio@30200000 {
     compatible = "fsl,imx8mm-gpio", "fsl,imx35-gpio";
     reg = <0x0 0x30200000 0x0 0x10000>;
@@ -1604,8 +1604,8 @@ gpio1: gpio@30200000 {
 
 phandle属性就是在devicetree中定义一个唯一的数字标识符，注意：不要跟其他的phandle值一样，例如：
 
-% 代码语言：dts
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
 pic@10000000 {
     phandle = <1>;
     interrupt-controller;
@@ -1614,8 +1614,8 @@ pic@10000000 {
 
 比如需要在另外的地方引用上面的节点，可以这样使用：
 
-% 代码语言：dts
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
 another-device-node {
     interrupt-parent = <1>;
 };
@@ -1631,8 +1631,8 @@ another-device-node {
 
 这两个属性可以用在任何设备树层次结构中带有子节点的设备节点中。\#address-cells的数值用于定义子节点的reg属性的地址域；\#size-cells数值用于定义子节点属性reg的大小。它们必须显示的定义，不能从设备树的上代继承。如果没有定义的话默认\#address-cells=2默认size-cells=2。
 
-% 代码语言：dts
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
     compatible = "fsl,imx8mm";
     interrupt-parent = <&gpc>;
     #address-cells = <2>;
@@ -1651,15 +1651,15 @@ another-device-node {
 reg 属性的值一般是 (address， length) 对，reg 属性一般用于描述设备地址空间资源信息，一般都是某个外设的寄存器地址范围信息。
 定义的格式如下：
 
-% 代码语言：dts
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
 reg = <address1 length1 address2 length2 address3 length3……>
 \end{CodeBlock}
 
 举例：一个设备有两个寄存器块，一个的地址是0x3000，占据32字节；另一个的地址是0xFE00，占据256字节，表示如下：
 
-% 代码语言：dts
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
 reg = <0x3000 0x20 0xFE00 0x100>;   //对应#address-cells = <1>; #size-cells = <1>;。
 \end{CodeBlock}
 
@@ -1721,8 +1721,8 @@ reg = <0x3000 0x20 0xFE00 0x100>;   //对应#address-cells = <1>; #size-cells = 
 
 为了适配LA32R指令集架构，首先需要将AM的TRM层进行重构。
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 #include <am.h>
 #include <la32r.h>
 #include <klib.h>
@@ -1798,8 +1798,8 @@ void _trm_init() {
 
 为了方便进行系统的编写，需要对LA32R架构特有的CSR寄存器在代码中进行设置，定义一系列宏，使编程时可直接使用。主要工作是将每个CSR寄存器的每个域进行设置。
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 #ifndef __LA32RCSR_H__
 #define __LA32RCSR_H__
 
@@ -2022,8 +2022,8 @@ typedef union {
 
 为了实现操作系统，还需要编写上电后直接运行的程序。在这段程序中，需要对CPU进行进一步的初始化。
 
-% 代码语言：asm
-\begin{CodeBlock}
+% 代码语言：BookLoongArch
+\begin{CodeBlock}[language=BookLoongArch]
 .section entry, "ax"
 .globl _start
 .type _start, @function
@@ -2062,8 +2062,8 @@ _excp:
 
 还需要编写链接脚本，以保证内存大小等参数正常配置，在链接时进行正确的装载。
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookLinker
+\begin{CodeBlock}[language=BookLinker]
 pmem_base = 0x80000000;
 
 OUTPUT_FORMAT(elf32-loongarch);

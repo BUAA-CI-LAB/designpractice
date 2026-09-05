@@ -63,8 +63,8 @@ BusyBox 的另一个特别之处在于它的可定制性。
 
 从 BusyBox 官方 Git 镜像仓库获取最新的源码：
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 git clone git@github.com:mirror/busybox.git
 cd busybox
 \end{CodeBlock}
@@ -93,7 +93,8 @@ cd busybox
 
 配置完成后，就可以开始编译了。输入以下命令：
 
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 make -j$(nproc)
 \end{CodeBlock}
 
@@ -103,7 +104,8 @@ make -j$(nproc)
 
 编译完成后，你可以将 BusyBox 安装到一个指定的目录中。这通常是一个临时的根文件系统目录，稍后你可以将它打包并上传到设备上：
 
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 make install
 \end{CodeBlock}
 

@@ -132,8 +132,8 @@ TLB重填异常的软件处理过程如下：
 
 代码分析如下：
 
-% 代码语言：asm
-\begin{CodeBlock}
+% 代码语言：BookLoongArch
+\begin{CodeBlock}[language=BookLoongArch]
 SYM_FUNC_START(handle_tlb_refill)
     csrwr   t0, LOONGARCH_CSR_TLBRSAVE // 将t0保存到CSR.TLBRSAVE寄存器
     csrrd   t0, LOONGARCH_CSR_PGD // 读取pgd基址到t0
@@ -179,8 +179,8 @@ handle\_tlb\_load处理的过程如下：
 
 代码分析如下：
 
-% 代码语言：asm
-\begin{CodeBlock}
+% 代码语言：BookLoongArch
+\begin{CodeBlock}[language=BookLoongArch]
 SYM_FUNC_START(handle_tlb_load)
     // 将t0、t1、ra写入CSR.SAVE0-CSR.SAVE3，暂存寄存器
     csrwr        t0, EXCEPTION_KS0
@@ -295,8 +295,8 @@ handle\_tlb\_protect处理的过程实际上就是调用缺页处理函数，来
 
 代码分析如下：
 
-% 代码语言：asm
-\begin{CodeBlock}
+% 代码语言：BookLoongArch
+\begin{CodeBlock}[language=BookLoongArch]
 SYM_FUNC_START(handle_tlb_protect)
     // 保存寄存器
     BACKUP_T0T1
@@ -328,8 +328,8 @@ TLB模块的读写接口上的PS域是6比特的，但由于LoongArch精简版�
 
 下面是查找操作的伪代码示意：
 
-% 代码语言：pseudocode
-\begin{CodeBlock}
+% 代码语言：BookPseudo
+\begin{CodeBlock}[language=BookPseudo]
 # 初始TLB未找到标志
 tlb_found = 0
 
@@ -768,8 +768,8 @@ LoongArch架构的地址翻译机制通过配置不同的地址翻译模式实�
 
 通过上述分析，我们得到TLB模块的接口与内部主要信号的定义如下：
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 module tlb
 #(
     parameter TLBNUM = 16

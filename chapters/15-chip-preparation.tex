@@ -154,8 +154,8 @@ N_O = OD3 \times 8 + OD2 \times 4 + OD1 \times 2 + OD0 \times 1
 
 例如：当输入时钟为25MHz，而SoC需要一个133MHz的时钟时，可以按照如下方法定义
 
-% 代码语言：systemverilog
-\begin{CodeBlock}
+% 代码语言：BookSystemVerilog
+\begin{CodeBlock}[language=BookSystemVerilog]
 S018PLLGS_LC SOC_PLL(
   .XIN(clk_25m),
   .CLK_OUT(soc_clk),
@@ -202,8 +202,8 @@ Library & GDS Smart Option 库，用于处理 GDS 文件并执行各种智能操
 
 S018DP.csh文件内容如下
 
-% 代码语言：shell
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 setenv MC_INSTALL_PATH `pwd`
 java -jar S018DP.jar&
 \end{CodeBlock}
@@ -244,8 +244,8 @@ java -jar S018DP.jar&
 
 当然也可以使用脚本生成：
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 #!/bin/bash
 rm -rf *~
 rm -rf *_RAM_DP_*
@@ -385,8 +385,8 @@ HDL
   编译阶段：使用VCS命令编译，命令格式如下：
 \end{itemize}
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 vcs -full64 -sverilog -debug_access+all -f file.list -timescale=1ns/1ns -l com.log
 \end{CodeBlock}
 
@@ -402,8 +402,8 @@ com.log用于保存编译日志。
   仿真阶段：在命令行中，通过执行simv文件来启动仿真，执行命令的基本格式如下：
 \end{itemize}
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 ./simv -l run.log
 \end{CodeBlock}
 
@@ -416,8 +416,8 @@ com.log用于保存编译日志。
   fsdb函数来生成FSDB波形文件。例如：
 \end{itemize}
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 initial begin  
   if ($test$plusargs("dumpfsdb")) begin  
     $fsdbDumpfile("TEST.fsdb");  
@@ -430,8 +430,8 @@ end
 
 对于使用\emph{VCS}进行门级仿真，只需要将逻辑综合生成的网表文件（生成verilog）替换原来的RTL代码文件（若启用SDF反标，则执行类似下述命令）：
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 vcs -full64 -sverilog -sdf -max/typ/min:inst_name:sdf_path -debug_access+all -f 
 file.list -timescale=1ns/1ns -l com.log
 \end{CodeBlock}
@@ -467,8 +467,8 @@ file.list -timescale=1ns/1ns -l com.log
 
 bash文件：
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 #!/bin/bash  
   
 # 设置环境变量，这里需要根据实际情况替换路径  
@@ -488,8 +488,8 @@ dc_shell -f run_dc.tcl
 
 run\_dc.tcl文件，假设上述bash脚本与该文件在同一目录下：
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookTcl
+\begin{CodeBlock}[language=BookTcl]
 # 设定工作库  
 set_app_var search_path "+/path/to/std_cells_lib +/path/to/io_cells_lib"  
   

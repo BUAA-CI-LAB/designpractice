@@ -559,8 +559,8 @@ Request Buffer的主要功能是锁存操作请求信息，包括op、index、ta
 
 Tag Compare模块的功能是将每一路Cache中读出的Tag与Request Buffer中寄存的tag（记为reg\_tag）进行比较，生成命中结果（此处不考虑Uncache情况，对于Uncache，必须不命中）。其Verilog代码示例如下：
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 assign way0_hit = way0_v && (way0_tag == reg_tag);
 assign way1_hit = way1_v && (way1_tag == reg_tag);
 assign cache_hit = way0_hit || way1_hit;
@@ -570,8 +570,8 @@ assign cache_hit = way0_hit || way1_hit;
 
 Data Select模块的功能是从两路Cache中读出的Data信息中选择合适的数据，生成访问操作的结果。对于命中的Load操作，首先用地址的{[}3:2{]}从每一路Cache读出的Data数据中选择一个字，然后根据Cache命中的结果从两个字中选择出Load的结果（此处不考虑Miss情况，若Miss，Load的最终结果来自AXI接口的返回，因此这里应该是一个三选一逻辑）。对于Replace操作，只需要根据替换算法决定的路信息，将读出的Data选择出来即可。其Verilog代码示例如下：
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 assign way0_load_word = way0_data[pa[3:2]*32 +: 32];
 assign way1_load_word = way1_data[pa[3:2]*32 +: 32];
 assign load_res = ({32{way0_hit}} & way0_load_word) | ({32{way1_hit}} & way1_load_word); 
@@ -1159,8 +1159,8 @@ AMAT = access\_time + (1 - p) \times miss\_penalty
 
 首先，通过突发传输，AR通道只需要进行一次握手，相比于传统方案，开销可节省\texttt{3a}。其次，SDRAM控制器可以将一次突发传输事务拆分成多个发往SDRAM芯片的READ命令。当SDRAM芯片返回一次读数据时，如果还有地址连续的READ命令，SDRAM控制器的状态机则直接转移到READ状态继续发送READ命令，与传统方案相比，开销可节省\texttt{3b}。最后，SDRAM控制器对R通道的回复可以与下一次READ命令的发送同时进行，从而将R通道握手的开销隐藏起来，与传统方案相比，开销可节省\texttt{3d}。
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookText
+\begin{CodeBlock}[language=BookText]
       a     b      c    d
     |---|-------|-----|---| <-------------------- 第1个节拍
                       |-----|---| <-------------- 第2个节拍

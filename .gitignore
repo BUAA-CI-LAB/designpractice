@@ -10,3 +10,9 @@
 *.bbl
 *.blg
 __pycache__/
+
+# Local editor / agent state and OS metadata
+/.agents/
+/.codex/
+.DS_Store
+Thumbs.db

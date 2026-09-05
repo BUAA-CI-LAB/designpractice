@@ -28,6 +28,9 @@ def main():
     main_tex = (root / 'main.tex').read_text(encoding='utf-8')
     chapter_paths = re.findall(r'\\input\{(chapters/[^}]+)\}', main_tex)
     stats = collections.Counter()
+    languages = collections.Counter()
+    code_style = (root / 'config/code-style.tex').read_text(encoding='utf-8')
+    supported_languages = set(re.findall(r'\\lstdefinelanguage\{([^}]+)\}', code_style))
     labels = []
     refs = []
     graphics = []
@@ -38,8 +41,17 @@ def main():
             errors.append(f'Missing chapter: {path.relative_to(root)}')
             continue
         text = path.read_text(encoding='utf-8')
-        code = re.findall(r'\\begin\{CodeBlock\}\n(.*?)\n\\end\{CodeBlock\}', text, re.S)
-        prose = re.sub(r'\\begin\{CodeBlock\}\n.*?\n\\end\{CodeBlock\}', '', text, flags=re.S)
+        code = re.findall(r'\\begin\{CodeBlock\}(?:\[[^\]\n]*\])?\n(.*?)\n\\end\{CodeBlock\}', text, re.S)
+        for index, options in enumerate(re.findall(r'\\begin\{CodeBlock\}(?:\[([^\]\n]*)\])?', text), 1):
+            language_match = re.search(r'(?:^|,)\s*language\s*=\s*(\w+)\s*(?:,|$)', options)
+            if language_match:
+                language = language_match.group(1)
+                languages[language] += 1
+                if language not in supported_languages:
+                    errors.append(f'Unknown code language {language}: {path.name}, block {index}')
+            else:
+                errors.append(f'Missing explicit code language: {path.name}, block {index}')
+        prose = re.sub(r'\\begin\{CodeBlock\}(?:\[[^\]\n]*\])?\n.*?\n\\end\{CodeBlock\}', '', text, flags=re.S)
         headings = len(re.findall(r'^\\(?:chapter\*?|section\*?|subsection\*?|subsubsection\*?|paragraph\*?|subparagraph\*?)\{', prose, re.M))
         figures = len(re.findall(r'\\begin\{figure\}', prose))
         tables = len(re.findall(r'\\begin\{longtable\}', prose))
@@ -134,6 +146,9 @@ def main():
     report = {
         'project': str(root), 'baseline_checked': args.baseline,
         'counts': dict(stats), 'labels': len(labels), 'references': len(refs),
+        'code_languages': dict(languages),
+        'highlighted_code_blocks': sum(n for name, n in languages.items() if name != 'BookText'),
+        'plain_text_blocks': languages['BookText'],
         'original_code_blocks_hash_verified': code_hashes_verified,
         'original_assets_hash_verified': len(manifest['assets']) if args.baseline else None,
         'recorded_local_inputs': sorted(project_inputs),

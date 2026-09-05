@@ -300,8 +300,8 @@ RTL 模块化设计是 CPU
 
 下面给出一个简单的testbench模板，以作教学使用：
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 // 仿真单位和精度
 `timescale 1ns/1ps
 
@@ -469,8 +469,8 @@ endmodule
 
   一般设置脚本为：
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookTcl
+\begin{CodeBlock}[language=BookTcl]
 set link_library [list "std_cells.db" "macros.db" "black_boxes.db"]
 set target_library [list "std_cells.db"]
 set symbol_library [list "sym.db"]
@@ -493,8 +493,8 @@ set synthetic_library [list "dw_foundation.sldb"]
   第二种读取方式可以自由指定设计库，并在生成GTECH中间文件前生成.syn文件存储于work目录下。这样可以在下次elaborate时节省时间。我们在读取RTL设计时一般选用第二种方法读取。下面是一个使用脚本，其中RTL\_SRC定义了所有源文件路径，ACTIVE\_DESIGN是顶层模块的名称。
 \end{itemize}
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookTcl
+\begin{CodeBlock}[language=BookTcl]
 analyze -format sverilog $RTL_SRC
 elaborate $ACTIVE_DESIGN
 link
@@ -522,8 +522,8 @@ check_design > ./check_design.log
   5.设计约束：包括设计规则约束与优化约束。设计规则约束（DRC）由工艺库决定，包括最大转换时间、最大扇出以及最大电容。优化约束就包括关键的时钟约束、输入输出延时以及面积约束等。DC会根据这个优化约束条件来权衡综合出的网表，使之尽量满足约束条件。下面是一些常用的脚本命令：
 \end{itemize}
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookTcl
+\begin{CodeBlock}[language=BookTcl]
 # 设置最大信号转换时间  
 set_max_transition 0.5 -net [get_nets clk_net]  
 # 解释：为名为clk_net的网络设置最大信号转换时间为0.5纳秒。这有助于控制信号完整性
@@ -595,8 +595,8 @@ set_output_delay -clock clk -max 2.5 [get_ports data_out]
   8.写网表等文件：在DC结束编译后，可以通过下述命令来实现写网表文件（除了.v格式还有DC支持的.ddc格式）：
 \end{itemize}
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookTcl
+\begin{CodeBlock}[language=BookTcl]
 write -format verilog -hierarchical -output your_design_synth.v
 write -format ddc -hierarchical -output your_design_synth.ddc
 \end{CodeBlock}
@@ -690,8 +690,8 @@ Paths）：信号跨越不同时钟域时可能产生时序问题，通常通过
 STA工具（如Synopsys
 PrimeTime）通过详细的路径分析和时序报告，帮助设计者识别时序问题并提供优化建议。STA流程通常贯穿设计的多个阶段，包括综合后、布局布线后和签核前的最终分析，每个阶段都需要验证时序完整性。下面给出PrimeTime的一个约束脚本模板：
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookTcl
+\begin{CodeBlock}[language=BookTcl]
 # 设置时钟约束
 create_clock -period 10 [get_ports clk]
 set_clock_uncertainty 0.5 [get_clocks clk]

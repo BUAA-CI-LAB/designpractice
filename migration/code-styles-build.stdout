@@ -13,11 +13,11 @@ Category 'changed_user':
 Run number 1 of rule 'xelatex'
 ------------
 ------------
-Running 'xelatex -no-shell-escape -synctex=1 -interaction=nonstopmode -halt-on-error -file-line-error -no-pdf -recorder -output-directory="build"  "main.tex"'
+Running 'xelatex -no-shell-escape -synctex=1 -interaction=nonstopmode -halt-on-error -file-line-error -no-pdf -recorder -output-directory="build"  "examples/code-styles.tex"'
 ------------
 This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025/Debian) (preloaded format=xelatex)
 entering extended mode
-(./main.tex
+(./examples/code-styles.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
 (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
@@ -120,122 +120,39 @@ For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def))
-(/usr/share/texlive/texmf-dist/tex/latex/xurl/xurl.sty))
-(./config/book-info.tex) (build/main.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/xurl/xurl.sty)) (build/code-styles.aux
+)
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg) [1] [2]
-(build/main.toc [3] [4]) (./chapters/00-preface.tex [5] [6]) [7] [8]
-(./chapters/01-overview.tex
-Chapter 1.
-[1] [2] [3] [4] [5]) (./chapters/02-design-environment.tex [6]
-Chapter 2.
-[7] [8] [9] [10]) (./chapters/03-digital-logic.tex [11] [12]
-Chapter 3.
-[13] [14] [15] [16] [17]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty) [18] [19]
-[20]) (./chapters/04-toolchain.tex [21] [22]
-Chapter 4.
-[23] [24] [25] [26] [27]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty) [1]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty) [28] [29]
-[30] [31] [32] [33] [34] [35] [36] [37] [38]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty) [39] [40]
-[41] [42] [43] [44] [45] [46]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty) [47])
-(./chapters/05-simple-cpu.tex [48]
-Chapter 5.
-[49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59])
-(./chapters/06-more-instructions.tex [60]
-Chapter 6.
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty) [2]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty) [3]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang3.sty) [61] [62]
-[63] [64] [65] [66] [67] [68]) (./chapters/07-exceptions.tex [69] [70]
-Chapter 7.
-[71] [72] [73] [74] [75] [76] [77] [78]) (./chapters/08-bus-and-soc.tex
-[79] [80]
-Chapter 8.
-[81] [82] [83] [84]
-./chapters/08-bus-and-soc.tex:200: ignored error: Infinite glue shrinkage found
- in box being split [85]
-./chapters/08-bus-and-soc.tex:281: ignored error: Infinite glue shrinkage found
- in box being split [86] [87] [88] [89] [90] [91] [92] [93] [94] [95])
-(./chapters/09-cache.tex [96]
-Chapter 9.
-[97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109]
-[110] [111] [112]
-Underfull \hbox (badness 10000) in paragraph at lines 991--993
-
-[113] [114] [115] [116]) (./chapters/10-mmu.tex [117] [118]
-Chapter 10.
-[119] [120] [121] [122] [123] [124] [125]
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty) [126] [127]
-[128] [129] [130] [131] [132] [133] [134]) (./chapters/11-advanced-cpu.tex
-[135] [136]
-Chapter 11.
-[137] [138] [139] [140] [141] [142] [143] [144] [145] [146] [147])
-(./chapters/12-fpga-verification.tex [148]
-Chapter 12.
-[149]
-./chapters/12-fpga-verification.tex:84: ignored error: Infinite glue shrinkage 
-found in box being split [150] [151] [152] [153] [154] [155] [156] [157]
-[158]) (./chapters/13-operating-system.tex [159] [160]
-Chapter 13.
-[161] [162] [163] [164] [165] [166] [167] [168] [169] [170] [171] [172]
-[173] [174] [175] [176] [177] [178] [179] [180] [181] [182] [183] [184]
-[185] [186] [187] [188] [189] [190] [191] [192] [193] [194] [195] [196]
-[197] [198] [199] [200] [201] [202] [203] [204] [205] [206] [207])
-(./chapters/14-software.tex [208]
-Chapter 14.
-[209] [210]) (./chapters/15-chip-preparation.tex [211] [212]
-Chapter 15.
-[213]
-./chapters/15-chip-preparation.tex:121: ignored error: Infinite glue shrinkage 
-found in box being split [214] [215] [216] [217] [218] [219] [220] [221]
-[222] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty) [223] [224])
-(./chapters/16-chip-frontend.tex [225] [226]
-Chapter 16.
-[227] [228] [229] [230] [231] [232] [233] [234] [235] [236]
-Underfull \hbox (badness 5359) in paragraph at lines 515--517
-[]\TU/lmroman10-regular.otf(0)/m/n/10 set_driving_cell/set_drive/set_input_tran
-sition\TU/FandolSong-Regular(0)/m/n/10 ：|  三 个 命 令 都 会 影 响 输 入 端 口 驱 动 强 度。|  我
- 们 通 过
-[237] [238] [239] [240] [241] [242] [243] [244])
-(./chapters/17-chip-backend.tex [245] [246]
-Chapter 17.
-[247] [248] [249] [250] [251] [252] [253] [254])
-(./chapters/18-test-and-show.tex [255] [256]
-Chapter 18.
-[257] [258] [259] [260]) [261] [262] (./chapters/19-conclusion.tex [263])
-(./chapters/30-references.tex [264] [265]
-Underfull \hbox (badness 1019) in paragraph at lines 43--44
-[]\TU/lmroman10-regular.otf(0)/m/n/10 [18] \TU/FandolSong-Regular(0)/m/n/10 胡 伟
- 武 汪 文 祥 苏 孟 豪 张 福 新 王 焕 东 章 隆 兵 肖 俊 华 刘 苏 陈 新 科 吴 瑞 阳 李 晓 钰 高 燕 萍\TU/lmroman10
--regular.otf(0)/m/n/10 . \TU/FandolSong-Regular(0)/m/n/10 计 算 机 体 系 结 构 基 础
-) (./chapters/40-resources.tex [266]) [267] (build/main.aux) )
-(see the transcript file for additional information)
-Output written on build/main.xdv (275 pages, 6110548 bytes).
-SyncTeX written on build/main.synctex.gz.
-Transcript written on build/main.log.
-Latexmk: Getting log file 'build/main.log'
-Latexmk: Examining 'build/main.fls'
-Latexmk: Examining 'build/main.log'
-Latexmk: Log file says output to 'build/main.xdv'
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty) [4]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty) [5]
+(build/code-styles.aux) )
+Output written on build/code-styles.xdv (5 pages, 90736 bytes).
+SyncTeX written on build/code-styles.synctex.gz.
+Transcript written on build/code-styles.log.
+Latexmk: Getting log file 'build/code-styles.log'
+Latexmk: Examining 'build/code-styles.fls'
+Latexmk: Examining 'build/code-styles.log'
+Latexmk: Log file says output to 'build/code-styles.xdv'
 Latexmk: Using bibtex to make bibliography file(s).
 Latexmk: applying rule 'xdvipdfmx'...
 Rule 'xdvipdfmx':  Reasons for rerun
 Changed files or newly in use/created:
-  build/main.xdv
+  build/code-styles.xdv
 Category 'changed_source_rules':
   xelatex
 
@@ -243,27 +160,10 @@ Category 'changed_source_rules':
 Run number 1 of rule 'xdvipdfmx'
 ------------
 ------------
-Running 'xdvipdfmx -E -o "build/main.pdf"  "build/main.xdv"'
+Running 'xdvipdfmx -E -o "build/code-styles.pdf"  "build/code-styles.xdv"'
 ------------
-build/main.xdv -> build/main.pdf
-[1][2][3][4][5][6][7][8][9][10][11][12][13][14][15][16][17][18][19][20][21][22][23][24][25][26][27][28][29][30][31][32][33][34][35][36][37][38][39][40][41][42][43][44][45][46][47][48][49][50][51][52][53][54][55][56][57][58][59
-xdvipdfmx:warning: JPEG: Inconsistent resolution may have specified in Exif and JFIF: 144x144 - 72x72
-][60][61][62][63][64][65][66][67][68][69][70][71][72][73][74][75][76][77][78][79][80][81][82][83][84][85][86][87][88][89][90][91
-xdvipdfmx:warning: JPEG: Inconsistent resolution may have specified in Exif and JFIF: 144x144 - 72x72
-][92
-xdvipdfmx:warning: JPEG: Inconsistent resolution may have specified in Exif and JFIF: 144x144 - 72x72
-][93][94][95][96
-xdvipdfmx:warning: JPEG: Inconsistent resolution may have specified in Exif and JFIF: 144x144 - 72x72
-xdvipdfmx:warning: JPEG: Inconsistent resolution may have specified in Exif and JFIF: 144x144 - 72x72
-][97
-xdvipdfmx:warning: JPEG: Inconsistent resolution may have specified in Exif and JFIF: 144x144 - 72x72
-][98
-xdvipdfmx:warning: JPEG: Inconsistent resolution may have specified in Exif and JFIF: 144x144 - 72x72
-][99][100
-xdvipdfmx:warning: JPEG: Inconsistent resolution may have specified in Exif and JFIF: 144x144 - 72x72
-][101][102][103][104][105][106][107][108][109][110][111][112][113][114][115][116][117][118][119][120][121][122][123][124][125][126][127][128][129][130][131][132][133][134][135][136][137][138][139][140][141][142][143][144][145][146][147][148][149][150][151][152][153][154][155][156][157][158][159][160][161][162][163][164][165][166][167][168][169][170][171][172][173][174][175][176][177][178][179][180][181][182][183][184][185][186][187][188][189][190][191][192][193][194][195][196][197][198][199][200][201][202][203][204][205][206][207
-xdvipdfmx:warning: JPEG: Inconsistent resolution may have specified in Exif and JFIF: 144x144 - 72x72
-][208][209][210][211][212][213][214][215][216][217][218][219][220][221][222][223][224][225][226][227][228][229][230][231][232][233][234][235][236][237][238][239][240][241][242][243][244][245][246][247][248][249][250][251][252][253][254][255][256][257][258][259][260][261][262][263][264][265][266][267][268][269][270][271][272][273][274][275]
-7240731 bytes written
-Latexmk: All targets (build/main.xdv build/main.pdf) are up-to-date
+build/code-styles.xdv -> build/code-styles.pdf
+[1][2][3][4][5]
+136456 bytes written
+Latexmk: All targets (build/code-styles.xdv build/code-styles.pdf) are up-to-date
 

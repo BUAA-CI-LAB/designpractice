@@ -240,8 +240,8 @@ D触发器是一种最常见的时序逻辑元件，用于存储一个比特的�
 
 \textbf{模块定义}：
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 module and_gate(
     input wire a,
     input wire b,
@@ -255,8 +255,8 @@ endmodule
 
 \textbf{时序逻辑描述}： 时序逻辑的描述通常使用\texttt{always}块来实现：
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 always @(posedge clk) begin
     q <= d;
 end

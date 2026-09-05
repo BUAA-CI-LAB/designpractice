@@ -266,8 +266,8 @@ Eula-Env 的文件结构如下：
   加载环境变量
 \end{enumerate}
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 $ source env.sh
 \end{CodeBlock}
 
@@ -281,8 +281,8 @@ $ source env.sh
 
 针对 CPU 设计的早期阶段，该项目设计了一套简易的 Verialtor 仿真 SoC，CPU 对外统一为一个 AXI4 接口，并通过 AXI4 转接桥连接 RAM、UART8250、Confreg，CPU具体定义如下图所示：
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 module mycpu_mega_top(
   input         clock,
   input         reset,
@@ -334,15 +334,15 @@ module mycpu_mega_top(
 
 为使得 CPU 接入该项目的 SoC，首先需要通过如下命令编译 SoC 仿真顶层模块，生成 SimTop.v 文件:
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 $ make verilog
 \end{CodeBlock}
 
 可以看到 SimTop.v 中包含了该项目的 SoC 顶层并实例化了 CPU 模块:
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 mycpu_mega_top core ( // @[EulaSimTop.scala 27:20]
    .awready(core_awready),
    .awvalid(core_awvalid),
@@ -363,8 +363,8 @@ mycpu_mega_top core ( // @[EulaSimTop.scala 27:20]
 
 然而，SimTop.v 中并没有对应 CPU 的实现部分，这部分需要使用者进行添加：将 CPU 顶层命名为 \texttt{mycpu\_mega\_top}, 并使其对外为一个 AXI 4 接口，具体接口定义如前面所示。假设 CPU 顶层模块文件名为 core.v (例如文件路径为 eula-env/eulacore/core.v，其中需要哦包含 CPU 顶层模块 \texttt{mycpu\_mega\_top})，最后在 SimTop.v 第一行引入 core.v 文件的路径
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 `include "../core.v" // 使用者根据自身 CPU 顶层模块文件路径添加
 
 module AXI4RAM(
@@ -376,8 +376,8 @@ module AXI4RAM(
 
 完成上述步骤后，在 eula-env/eulacore 目录输入:
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 $ make emu EMU_TRACE=1 # 若不需要导出波形，可以不添加 EMU_TRACE=1 参数
 \end{CodeBlock}
 
@@ -391,8 +391,8 @@ $ make emu EMU_TRACE=1 # 若不需要导出波形，可以不添加 EMU_TRACE=1 
   编译 NEMU
 \end{enumerate}
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 $ cd ${NEMU_HOME}
 $ make la32-reduced-ref_defconfig
 make -j
@@ -408,8 +408,8 @@ make -j
 
 以 coremark 程序为例
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 $ cd ${AM_HOME}/apps/coremark
 $ make ARCH=la32r-eula
 \end{CodeBlock}
@@ -422,8 +422,8 @@ $ make ARCH=la32r-eula
   运行仿真测试
 \end{enumerate}
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 $ cd ${PROJECT_ROOT}/eulacore/build
 $ ./emu -i ${AM_HOME}/apps/coremark/build/coremark-la32r-eula.bin
 
@@ -439,8 +439,8 @@ $ ./emu -i ${AM_HOME}/apps/coremark/build/coremark-la32r-eula.bin
   查看波形
 \end{enumerate}
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 $ gtkwave "<your wave path>"
 \end{CodeBlock}
 
@@ -475,8 +475,8 @@ QEMU（Quick EMUlator）是一个开源的虚拟机监控器和全系统模拟�
 
 对于上板验证，读者可以直接打开\url{https://github.com/BUAA-CI-LAB/MegaSoC}仓库的Vivado工程文件，并导入CPU文件，更新IP核后，即可进行综合和实现。其中，CPU顶层如图所示：
 
-% 代码语言：verilog
-\begin{CodeBlock}
+% 代码语言：BookVerilog
+\begin{CodeBlock}[language=BookVerilog]
 module mycpu_mega_top(
   input         clock,
   input         reset,
@@ -617,8 +617,8 @@ Uboot是一个开源的Bootloader，主要用于嵌入式系统中，负责在�
 
 通过如下命令，你可以构建LA32R架构的Uboot：
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 $ export DEVICE_TREE=la32rmega_demo;
 $ export ARCH=la32r;
 $ export CROSS_COMPILE=loongarch32r-linux-gnusf-;
@@ -632,8 +632,8 @@ Linux 是一个开源的类 Unix 操作系统内核，广泛应用于计算机�
 
 通过如下命令，你可以构建LA32R架构的Linux：
 
-% 代码语言：bash
-\begin{CodeBlock}
+% 代码语言：BookShell
+\begin{CodeBlock}[language=BookShell]
 export ARCH=loongarch;
 export CROSS_COMPILE=loongarch32r-linux-gnusf-;
 clear && make la32rmega_defconfig && make -j nproc
@@ -645,8 +645,8 @@ Linux移植包括多个级别的工作：体系结构级别、SoC级别和板级
 
 首先在\texttt{linux/arch/loongarch/boot/dts/loongson}文件夹添加\texttt{la32rmega\_demo.dts}文件：
 
-% 代码语言：dts
-\begin{CodeBlock}
+% 代码语言：BookDTS
+\begin{CodeBlock}[language=BookDTS]
 /dts-v1/;
 /{
     model = "loongson,generic";
@@ -825,8 +825,8 @@ Linux移植包括多个级别的工作：体系结构级别、SoC级别和板级
 
 可以看到，我们在设备树中添加了时钟、存储器、串口、中断控制器、以太网、MMC等设备，并编写了对应属性，然后，在\texttt{linux/arch/boot/dts/loongson/Makefile}中添加：
 
-% 代码语言：makefile
-\begin{CodeBlock}
+% 代码语言：BookMake
+\begin{CodeBlock}[language=BookMake]
 dtb-$(CONFIG_LS_SOC) += loongson32_ls.dtb
 dtb-$(CONFIG_BX_SOC) += loongson32_bx.dtb
 dtb-$(CONFIG_MEGA_SOC_FPGA) += la32rmega_demo.dtb # 新增
@@ -834,8 +834,8 @@ dtb-$(CONFIG_MEGA_SOC_FPGA) += la32rmega_demo.dtb # 新增
 
 之后，添加\texttt{linux/arch/loongarch/configs/la32rmega\_defconfig}文件：
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookConfig
+\begin{CodeBlock}[language=BookConfig]
 CONFIG_SYSVIPC=y
 CONFIG_NO_HZ=y
 CONFIG_HIGH_RES_TIMERS=y
@@ -1176,8 +1176,8 @@ CONFIG_MAGIC_SYSRQ=y
 
 修改配置对应的时钟：
 
-% 代码语言：c
-\begin{CodeBlock}
+% 代码语言：BookC
+\begin{CodeBlock}[language=BookC]
 // arch/loongarch/include/asm/time.h
 #elif CONFIG_BX_SOC
     return 33000000;
@@ -1190,8 +1190,8 @@ CONFIG_MAGIC_SYSRQ=y
 
 修改对应的Kconfig(\texttt{Linux/arch/loongarch/loongson32/Kconfig})：
 
-% 代码语言：text
-\begin{CodeBlock}
+% 代码语言：BookConfig
+\begin{CodeBlock}[language=BookConfig]
 config LS_SOC
     bool
     prompt "Loongson SOC"

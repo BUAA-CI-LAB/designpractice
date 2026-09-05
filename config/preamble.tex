@@ -19,15 +19,14 @@
   BoldItalicFont=lmsans10-boldoblique.otf,
   Ligatures=TeX
 ]
-\setmonofont{DejaVuSansMono.ttf}[
-  Path=fonts/,
-  BoldFont=DejaVuSansMono-Bold.ttf,
-  ItalicFont=DejaVuSansMono-Oblique.ttf,
-  BoldItalicFont=DejaVuSansMono-BoldOblique.ttf,
-  Scale=0.9,
+% 接近原稿的等宽字体；特殊符号由 code-style.tex 中的 DejaVu 回退补齐。
+\setmonofont{lmmono10-regular.otf}[
+  BoldFont=lmmonolt10-bold.otf,
+  ItalicFont=lmmono10-italic.otf,
+  BoldItalicFont=lmmonolt10-boldoblique.otf,
   Ligatures=NoCommon
 ]
-\setCJKfamilyfont{bookmono}{FandolHei-Regular.otf}[
+\setCJKfamilyfont{bookmono}{FandolFang-Regular.otf}[
   BoldFont=FandolHei-Bold.otf,
   ItalicFont=FandolKai-Regular.otf,
   BoldItalicFont=FandolHei-Bold.otf
@@ -46,19 +45,7 @@
 
 \usepackage{xcolor}
 \usepackage{upquote}
-\usepackage{fvextra}
-% 直接输入 Verilog / C / Shell 等原始代码；不写转义，也不执行代码。
-\DefineVerbatimEnvironment{CodeBlock}{Verbatim}{
-  fontsize=\small,
-  breaklines=true,
-  breakanywhere=true,
-  breakautoindent=true,
-  breaksymbolleft={},
-  tabsize=4,
-  frame=lines,
-  framesep=2mm,
-  rulecolor=\color{black!18}
-}
+\input{config/code-style}
 
 \usepackage{longtable,booktabs,array,calc}
 \usepackage{etoolbox}
